@@ -1,0 +1,51 @@
+<odoo>
+  <data>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="kit_vest.action_window">
+      <field name="name">kit_vest window</field>
+      <field name="res_model">kit.vest</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="kit_vest.action_server">
+      <field name="name">kit_vest server</field>
+      <field name="model_id" ref="model_kit_vest"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+  
+    <!-- Top menu item -->
+
+    <menuitem name="Anvil Base" id="kit_vest.menu_root"/>
+
+    <!-- menu categories -->
+    <menuitem name="Regular" id="menu_regular" parent="menu_root" action="action_window_kit_vest_regular"/>
+
+    <menuitem name="Menu 1" id="kit_vest.menu_1" parent="kit_vest.menu_root"/>
+    <menuitem name="Menu 2" id="kit_vest.menu_2" parent="kit_vest.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="kit_vest.menu_1_list" parent="kit_vest.menu_1"
+              action="kit_vest.action_window"/>
+              
+    <menuitem name="Server to list" id="kit_vest" parent="kit_vest.menu_2"
+              action="kit_vest.action_server"/>
+
+
+   
+  </data>
+</odoo>

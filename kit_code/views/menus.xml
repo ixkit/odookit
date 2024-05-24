@@ -1,0 +1,25 @@
+<odoo>
+  <data>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="kit_code.action_window">
+      <field name="name">kit_code window</field>
+      <field name="res_model">kit.code.server</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+ 
+  
+    <!-- Top menu item -->
+
+    <menuitem name="Code🔨" id="kit_code.menu_root"/>
+
+    <!-- menu categories -->
+    <menuitem name="Log" id="menu_regular" parent="menu_root" action="action_window_kit_code_regular"/>
+ 
+
+   
+   
+  </data>
+</odoo>

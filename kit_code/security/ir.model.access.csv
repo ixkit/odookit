@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_kit_code_server,kit_code_server,model_kit_code_server,base.group_user,1,1,1,1
+bot_kit_code_server,bot_kit_code_server,model_kit_code_server,base.group_public,1,1,1,1
+sys_kit_code_server,sys_kit_code_server,model_kit_code_server,base.group_system,1,1,1,1
