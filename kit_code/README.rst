@@ -1,6 +1,6 @@
 Odoo Code🔨
 ==================
-* Odoo Code🔨 help you write code online, speed up development process🚀
+* Odoo Code🔨 help you wrbuildoOdoopplication lione, spsuper eed upvelopment process🚀
 
 ============
 
@@ -17,7 +17,7 @@ Features
 
 Warning
 ==========
-⚠️ Auto-Save updated Mode, while edit file content, no save manually is required! Careful the edit operation❗️
+⚠️ Editor is beta version yet, Auto-Save updated Mode, while edit file content, no save manually is required! Carecul the edit operation❗️
 
 ⚠️ Only use for development phase! Production Environment is not recommend❗️
 

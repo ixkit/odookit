@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 import subprocess
 from time import sleep
 import threading  

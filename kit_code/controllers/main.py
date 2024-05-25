@@ -50,18 +50,12 @@ class Main(http.Controller):
     """ 
         "name:"web.Dropdown",
         "url":"/web/static/src/core/dropdown/dropdown.xml",
-        "file":"/Users/icoco/WorkSpace/2024/prj/odoo/odoo-space-17/odoo-17/odoo/addons/web/static/src/core/dropdown/dropdown.xml"
+        "file":"/odoo-17/odoo/addons/web/static/src/core/dropdown/dropdown.xml"
     """
     @http.route(entry(),  auth='user', website=True )
     def code_server(self, **kwargs): 
-        print("-------------------------------------")
-        for key, value in kwargs.items():
-            print("%s == %s" % (key, value))
 
         params = kws2Dict(**kwargs)
-        print("-------------------------------------")
-        print(params)
-        print("-------------------------------------")
 
         _logger.debug('/code🔨, input params =%s',params)
         action =  params.get('action')
@@ -108,11 +102,9 @@ class Main(http.Controller):
         
     
     def open_file(self,next_url,module_name,started=False): 
-        print("*********************************") 
+         
         _logger.debug('entry->open_file, next_url:%s,',next_url)
-        print("next_url\r\n"+ next_url)
-        print("name\r\n" + str(module_name))
-        print("********************************")
+         
         
         code_server = self.get_code_server()
         if not code_server.get('status') == 'running':

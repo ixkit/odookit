@@ -1,29 +1,31 @@
 # -*- coding: utf-8 -*-
 #
-#           ixkit - odoo code 
+#           ixkit - odoo code🔨 
 #
 #@team              : ixkit
 #@author            : iRobinZhang@hotmail.com
 #@date              : 2024-4-25
-#@version           : 0.1.0 
+#@version           : 1.0.0 
 #
 #-----------------------------------------------------------------------
 
 {
     "name": "Odoo Code🔨",
-    "version": "17.0.0.1.0",
+    "version": "17.0.1.0.0",
 
     "summary": """ 
-        Help you write code online, speed up development process🚀
+        Help you build Odoo application online, super speed development process🚀
     """, 
-    "description":"Odoo Code🔨 build application in new way",   
+    "description":"Odoo Code🔨 build application in new way!",   
     'category': 'Extra Tools/ixkit',
     'author': 'ixkit',
     'company': 'ixkit',
     'maintainer': 'ixkit',
     'website': "http://www.ixkit.com/odookit",
     "live_test_url": "http://www.ixkit.com/odookit",
-    "license": "LGPL-3",
+    "license": "OPL-1",
+    "price" : 59,
+    "currency": "USD",
     "support": "odoo@ixkit.com",
     "depends": [
         'base', 'web'

@@ -167,6 +167,5 @@ cython_debug/
 __pycache__/
 __pycache__/*
 
-kit_code/vendors
+kit_code/vendors/
 kit_code/vendors/**
-kit_code/vendors/code_server

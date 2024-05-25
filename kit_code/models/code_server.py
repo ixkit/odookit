@@ -359,7 +359,7 @@ class CodeServer(models.Model):
         class:sub template
         type:owl
         url:/web/static/src/webclient/navbar/navbar.xml
-        file:/Users/icoco/WorkSpace/2024/prj/odoo/odoo-space-17/odoo-17/odoo/addons/web/static/src/webclient/navbar/navbar.xml
+        file:/odoo-17/odoo/addons/web/static/src/webclient/navbar/navbar.xml
     """ 
     @api.model
     def get_editable_file(self,intent):

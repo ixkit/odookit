@@ -2,8 +2,7 @@ const getAnimateCanvas =()=>{
     const mycanvas = document.getElementById('codeStreamCanvas');
     return mycanvas ;
 }
-const animate_coding_effect =()=> {
-    console.log('🚀 effect.js start animate_coding_effect')
+const animate_coding_effect =()=> { 
 
     var H = window.innerHeight;
     var W = window.innerWidth;
@@ -44,7 +43,7 @@ const animate_coding_effect =()=> {
       var b = Math.ceil(Math.random() * 155) + 100;
       return 'rgb(' + r + ',' + g + ',' + b + ')'
     }
-    console.log(randColor())
+   
     var timer = setInterval(function() {
       draw();
     }, 1000 / 30)
@@ -62,11 +61,11 @@ const listenWindowSize = ()=>{
 
 
 window.onload=function(){
-    console.log('🚀 effect.js,window.onload')
+    //console.log('🚀 effect.js,window.onload')
     if (getAnimateCanvas()){
         animate_coding_effect()
         listenWindowSize();
     }
 } 
  
-console.log('🚀 effect.js')
+//console.log('🚀 effect.js')

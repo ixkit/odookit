@@ -85,7 +85,7 @@ export class CodeDashboard extends Component{
     }
     // array ?
     async pathStatus(strOrArray){
-      console.debug('🔥->pathStatus', strOrArray);
+      
       if (!strOrArray) return;
       var out;
       if (Array.isArray(strOrArray)){
@@ -94,7 +94,7 @@ export class CodeDashboard extends Component{
         out = strOrArray;
       }
       if (!out) return;
-      console.debug('🔥->out', out);
+       
       // Stop Code Server
       // Start Code Server
       let refresh = false;
@@ -314,8 +314,7 @@ export class CodeDashboard extends Component{
       }
       const that = this;
       this.orm.call('kit.code.server', 'get_editable_file',[intent])
-       .then(function (data) { 
-          console.log(`get_editable_file response:`,data)
+       .then(function (data) {  
           const url = data.navigateTo
           that._openCodeServerPage(url)
        })
