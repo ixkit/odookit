@@ -49,8 +49,8 @@
             'kit_code/static/src/css/code_dashboard.css', 
             'kit_code/static/image/**/*',
 
-            'kit_code/static/lib/termynal/**/*',
-            'kit_code/static/lib/jsontable/**/*',
+            'kit_code/static/jslib/termynal/**/*',
+            'kit_code/static/jslib/jsontable/**/*',
             
             'kit_code/static/src/js/effect.js',
         ],

@@ -10,6 +10,10 @@ def get_config_file():
     my_dir = os.path.dirname(os.path.abspath(__file__)) 
     return my_dir + "/__config__.py"
 
+def get_module_path():
+    my_dir = os.path.dirname(os.path.abspath(__file__)) 
+    return my_dir
+
 def get_mainifset_file():
     my_dir = os.path.dirname(os.path.abspath(__file__)) 
     return my_dir + "/__manifest__.py"

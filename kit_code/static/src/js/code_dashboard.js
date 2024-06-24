@@ -223,8 +223,13 @@ export class CodeDashboard extends Component{
       const that = this;
       const size = 1;  
       setTimeout(()=>{
-        const url = that.getCodeServerUrl(); 
-        that._openCodeServerPage(url); 
+        if (1>10){
+          const url = that.getCodeServerUrl(); 
+          that._openCodeServerPage(url);
+        }else{
+          that._openHome()
+        }
+        
         // should do this job in server internal 
         that.pushSpaceToCodeServer();
       },1000 * size)
@@ -298,6 +303,20 @@ export class CodeDashboard extends Component{
           
        })
     }
+ 
+      async _openHome(){
+        const intent = {  
+          "module" : "kit_code",
+          "file" : "__manifest__.py",
+          "lineNo": 1
+        }
+        const that = this;
+        this.orm.call('kit.code.server', 'get_home_link',[])
+          .then(function (data) {  
+            const url = data.navigateTo
+            that._openCodeServerPage(url)
+          })
+      }     
     /*
         name:web.NavBar.DropdownItem
         class:sub template

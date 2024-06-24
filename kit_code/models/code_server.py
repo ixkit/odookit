@@ -21,6 +21,7 @@ from ..land.jsons import json_dumps
 from ..land.lang.pattern import singleton
 from ..land.web import rpc_result
 from ..shell.sheller import async_run
+from ..__support__ import get_module_path
 
 __author__ = odoo.release.author
 __version__ = odoo.release.version
@@ -199,6 +200,8 @@ class CodeServer(models.Model):
         
         return rpc_result.success(server_handler) 
 
+    
+
     def _server_is_running(self):
         servers = ServerMaster.getServers()
         if servers  is None or len(servers)<1:
@@ -353,7 +356,27 @@ class CodeServer(models.Model):
             addons_modules = self.get_addons_modules()
             theCache.set("addons_modules",addons_modules) 
         return addons_modules
-    
+   
+
+ 
+    """
+    const intent = {  
+          "module" : "kit_code",
+          "file" : "__manifest__.py",
+          "lineNo": 1
+        }
+    """
+    @api.model
+    def get_home_link(self):
+        dir = get_module_path()
+        server = ServerMaster._server
+        end_point = server.get("url") 
+        file  =  "__manifest__.py"
+        url = "{}/folder?dir={}&file={}".format(end_point,dir,file)  
+        result = {
+            'navigateTo': url
+        }   
+        return result 
     """
         name:web.NavBar.DropdownItem
         class:sub template

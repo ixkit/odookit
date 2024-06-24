@@ -6,7 +6,7 @@ from . import land
 from . import controllers
 from . import models
 
-from .__support__ import get_config_file,setup_tracer
+from .__support__ import *
 
 from .land import config
 from .land.trace import Tracer

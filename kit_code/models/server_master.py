@@ -68,7 +68,7 @@ def _get_server_exe_name():
 
 def _get_server_path():
     path = get_current_path()
-    result = str(path.resolve().parent) + "/vendors/code_server/" + _get_server_exe_name()
+    result = str(path.resolve().parent) + "/vendors/code-server/" + _get_server_exe_name()
     return result
 
 def _get_module_path():
@@ -120,6 +120,7 @@ class ServerMaster():
         doc_path = _get_module_path()
         server = ServerMaster.getTargetServerPath()
         cmd =  "{} start  --port={}  --space={} --slient=true --focus=README.rst,__manifest__.py ".format(server,port, doc_path)
+        log_it(cmd)
         # return json string that print out by RPC server
         async_run(cmd,ServerMaster.on_shell_echo)
         return ServerMaster.warp_server(port)
@@ -195,7 +196,7 @@ class ServerMaster():
         file = args.get("file")
         server = ServerMaster._server
         end_point = server.get("url") 
-        url = "{}/open?dir={}&file={}".format(end_point,dir,file)
+        url = "{}/folder?dir={}&file={}".format(end_point,dir,file)
         return url
        
     @staticmethod
@@ -216,6 +217,13 @@ class ServerMaster():
 
     @staticmethod
     def post_folders(folders):
+        try:
+           return ServerMaster._post_folders(folders) 
+        except Exception as e:     
+            _logger.error('failed post folders,error:%s', e)
+            return {}
+    @staticmethod
+    def _post_folders(folders):
         payload ={
             "folders":folders
         }
@@ -225,6 +233,8 @@ class ServerMaster():
         end_point = ServerMaster._server.get("url")
         url = "{}/api/folders".format(end_point)
         response = requests.post(url, data=data_buf,headers=headers)
+        if response is None:
+            return {}
         json_response = response.json()
 
         buf = json_dumps(json_response)
