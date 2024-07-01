@@ -76,9 +76,9 @@ class CodeServer(models.Model):
     _name = 'kit.code.server'
     _description = 'kit code server'
 
-    name = fields.Char(default="")
+    name = fields.Char(default="",required=True)
 
-    ts = fields.Datetime( string="Time")
+    ts = fields.Datetime( string="Time",required=True)
     message = fields.Text( string="Message")
     message_type = fields.Char()
 

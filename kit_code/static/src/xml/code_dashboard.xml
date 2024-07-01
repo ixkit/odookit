@@ -24,14 +24,27 @@
                                         </div>
                                         <span style="margin-left:20px;font-weight: bold;">Code Server </span>
                                         <span style="margin-left:5px;">is <t t-esc="state.serverStatus"/></span>
-                                        <div style="margin-left:10px; cursor: -webkit-grab; cursor: grab;" title="Open Code Editor" t-if="state.serverStatus ==='running'" t-on-click="handleCickCodeServer" > 
+                                        <div style="margin-left:6px; cursor: -webkit-grab; cursor: grab;" title="Open Code Editor" t-if="state.serverStatus ==='running'" t-on-click="handleCickCodeServer" > 
                                          
                                             <span > at <t t-esc="state.coderServer.url"/></span>
                                         
                                         </div>
+                                        <div style='font-size:12px;margin-left:10px;' >
+                                            <button name="" type="object"
+                                                class="btn-primary" icon="fa-star" t-on-click="on_ctrl_server">
+                                                <div>
+                                                    <t  t-if="state.serverStatus ==='running'">Stop</t>
+                                                    <t t-else="">
+                                                      Start 
+                                                    </t>
+                                                </div>
+                                            </button>
+                                        </div>
+                    
                                     </div>
-                                    <!-- <div class="status-widget-image-loading"></div> -->
+                                    <!-- <div class="status-widget-image-loading"></div>
                                     <div style="text-align: center; margin-top:3px; color:gray; "><t t-esc="state.codeServerTip" /></div>
+                                     -->
                                 </div>
                     </div>
                     

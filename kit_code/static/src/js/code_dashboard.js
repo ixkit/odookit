@@ -259,15 +259,14 @@ export class CodeDashboard extends Component{
     fetchServerInfo(onResult){
       const that = this;
       this.orm.call('kit.code.server', 'fetch_server_info')
-       .then(function (rpcResult) {
-          
-         if (rpcResult){
-           if (rpcResult.success){ 
-            const server_info = rpcResult.data 
-             that.state.coderServer = server_info
-             onResult.apply(null,['running'])
-             return;
-           } 
+       .then(function (rpcResult) { 
+          if (rpcResult){
+            if (rpcResult.success){ 
+              const server_info = rpcResult.data 
+              that.state.coderServer = server_info
+              onResult.apply(null,['running'])
+              return;
+            } 
          }
          that.state.coderServer = null
          onResult.apply(null,['ready'])

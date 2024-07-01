@@ -32,7 +32,7 @@ def get_mainifset_version():
 
  #TODO
 def get_support_major_version():
-    return '16'
+    return '17'
 
 def setup_tracer(level=None):  
     trace_level = level
