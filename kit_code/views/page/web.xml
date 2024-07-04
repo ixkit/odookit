@@ -38,11 +38,13 @@
                         Loading <span style="font-weight: bold; "><t t-out="moduleName"/></span>   ...
                     </div> 
                 </div>
-                <div t-if=" not codeServerIsRunning">  
-                    Code Server not running, launch now !  
-                    <span onclick='onClickStart()' style="cursor:pointer; font-weight: bold; color:yellow; margin-left:5px;font-size:25px;" > Start⚡︎</span>
+                <div t-if=" not codeServerIsRunning" >  
+                    Code Server not running, launch now?
+                    <div align='center' style="margin-top:10px;"> 
+                        <span style="cursor:pointer; font-weight: bold; color:yellow; font-size:25px;" onclick='onClickStart()'  >Start⚡︎</span>
+                    </div>
                 </div> 
-                
+               
             </div> 
              
             <div t-if="tracer" style="background:blue;color:white">
@@ -58,7 +60,7 @@
            
             function go(){
                 let forwardUrl = '<t t-out="nextUrl"/>' 
-                console.log('forwardUrl?', forwardUrl)
+                //console.log('forwardUrl?', forwardUrl)
                 if (! forwardUrl || '' === forwardUrl){ 
                     return ;
                 } 
@@ -70,7 +72,7 @@
             
             setTimeout(()=>{
                 go();
-            },1000*3)
+            },1000*1)
        </script>
        <script t-if="not codeServerIsRunning">
             function onClickStart(){ 
@@ -79,7 +81,7 @@
 
                 location.href = forwardUrl;
             }  
-            console.debug('☁️ start....')
+            //console.debug('☁️ start....')
        </script> 
       <!-- <t t-call='kit_code.code_effect_js'></t> -->
      

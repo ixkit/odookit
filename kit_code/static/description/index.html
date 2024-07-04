@@ -46,20 +46,7 @@
         
     </div>
 </section> -->
-<!-- Edit gif -->
-<div class=" text-left"> 
-  <p class="oe_mt32">
-    <font style="font-size: 120%;font-weight: bolder !important;color: #6f6060;">Online Editor:</font>
-  </p>
-</div>
-<section class="oe_container oe_dark">
-  <div class="oe_row oe_spaced">
-      
-      <div class="oe_screenshot" align="center">
-           <img style="max-width: 80%" src="assets/code-edit.gif"/>
-       </div>
-   </div>
-</section> 
+
 
 <!-- Browse gif -->
 <div class=" text-left"> 
@@ -75,7 +62,34 @@
        </div>
    </div>
 </section> 
- 
+
+<div class="text-center">
+  <p class="oe_mt32" style="font-size: 120%;">
+    Launch Code Server, browse Odoo modules source code online.
+  </p>
+</div>
+
+<!-- Spy-Code gif -->
+<div class=" text-left"> 
+  <p class="oe_mt32">
+    <font style="font-size: 120%;font-weight: bolder !important;color: #6f6060;">Spy Element & Edit:</font>
+  </p>
+</div>
+<section class="oe_container oe_dark">
+  <div class="oe_row oe_spaced">
+      
+      <div class="oe_screenshot" align="center">
+           <img style="max-width: 80%" src="assets/spy-code.gif"/>
+       </div>
+   </div>
+</section> 
+
+<div class="text-center">
+  <p class="oe_mt32" style="font-size: 120%;">
+    Insight into the Odoo web page structure, super easy locate the feature source code line, The Spy Element feature should install the <a  href="https://apps.odoo.com/apps/modules/17.0/kit_spy">Odoo Spy</a> module.
+  </p>
+</div>
+
 <h4 class="oe_slogan"><b>Screenshots</b></h4>
 
 <div class=" text-left"> 
@@ -88,14 +102,14 @@
   <div class="oe_row oe_spaced">
       
       <div class="oe_screenshot" align="center">
-           <img style="max-width: 80%" src="assets/screenshots/editor.jpg"/>
+           <img style="max-width: 80%" src="assets/screenshots/editor.png"/>
        </div>
    </div>
 </section>
 
 <div class=" text-left"> 
   <p class="oe_mt32">
-    <font style="font-size: 120%;font-weight: bolder !important;color: #6f6060;">Browse Module:</font>
+    <font style="font-size: 120%;font-weight: bolder !important;color: #6f6060;">Browse Modules:</font>
   </p>
 </div>
 
@@ -103,7 +117,7 @@
   <div class="oe_row oe_spaced">
       
       <div class="oe_screenshot" align="center">
-           <img style="max-width: 80%" src="assets/screenshots/browse.jpg"/>
+           <img style="max-width: 80%" src="assets/screenshots/browse.png"/>
        </div>
    </div>
 </section> 
@@ -136,7 +150,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;Start Code Server from the Code Console page of this module, once start success, browser auto navigate to new window that address is :<span>
           <a style="font-weight: bolder !important; color: #827d7d !important; cursor: pointer !important;" href="http://localhost:3030">http://localhost:3030/
           </a>
-        </span>; The core features of code editor server was provide by the open source <span> <a style=" cursor: pointer !important;" href="https://github.com/icoco/code-server">Code Server
+        </span>; The core features of code editor server was provide by the open source <span> <a style=" cursor: pointer !important;" href="https://github.com/ixkit/code-server">Code Server
         </a>  </span>
       </p>
        
@@ -145,7 +159,7 @@
     </div> 
     <div class="oe_row oe_spaced oe_mt0" style="text-align: center; width: 100%;">
       <div>
-        <a href="https://github.com/icoco/code-server"
+        <a href="https://github.com/ixkit/code-server"
           target="_blank"
           class="btn btn-block mb-2 deep_hover"
               style="text-decoration: none;  background-color: #413e3eaf; color: #FFF;  border-radius: 4px;">
@@ -154,7 +168,7 @@
         </a>
       </div> 
       <div>
-        <a style="font-size: 120%; color: #827d7d; cursor: pointer !important;" href="https://github.com/icoco/code-server">https://github.com/icoco/code-server
+        <a style="font-size: 120%; color: #827d7d; cursor: pointer !important;" href="https://github.com/ixkit/code-server">https://github.com/ixkit/code-server
         </a>
       </div>   
     </div>
@@ -167,15 +181,25 @@
           <ul style="margin-left: -10px;" >
               <li >   
                 <p class="oe_mt8" style="font-size: 120%;"> 
-                  Download the Code server program from the Code Server<span>  <a style=" cursor: pointer !important;" href="https://github.com/icoco/code-server">repository
-                  </a> </span>  or clone the source code and build the Code Sever package. 
+                  Download the Code Server program from the Code Server<span>  <a style=" cursor: pointer !important;" href="https://github.com/ixkit/code-server/releases">repository
+                  </a> </span>  or clone the source code and build the Code Sever binary package. 
                 </p>
               </li>  
             
               <li >   
                 <p class="oe_mt8" style="font-size: 120%;"> 
-                  Put the Code Sever package into the moudule directory './kit_code/vendors/', it should be './kit_code/venders/code_server'
+                  Put the Code Sever binary package into the moudule directory './kit_code/vendors/', 
                 </p>
+                <p class="oe_mt8" style="font-size: 120%;"> 
+                  eg:<br>
+                  mac platform :
+                  it should be './kit_code/venders/code_server/code-server-macos' 
+                  <br>
+                  windows:
+                  it should be './kit_code/venders/code_server/code-server-win.exe' 
+                </p>
+                
+
               </li> 
           </ul>
             

@@ -208,16 +208,23 @@ export class CodeDashboard extends Component{
       this.orm.call('kit.code.server', 'ctrl_server',[op])
       .then(function (result) {  
         //anyway refresh the UI
-        setTimeout(() => {
-          that.render_server_status((x)=>{
-            if (x === 'running'){
-              try{
-                that.onCodeServerStarted();
-              }catch(ex){}
-            } 
-          })
-        }, 2000)  
+        that.startCheckStatus();
       })  
+    }
+    async startCheckStatus(delay=2000){
+       
+      const that = this;
+      setTimeout(() => {
+        that.render_server_status((x)=>{
+          if (x === 'running'){
+            try{
+              that.onCodeServerStarted();
+            }catch(ex){}
+          }else{
+            that.startCheckStatus(3000);
+          }
+        })
+      }, delay)  
     }
     async onCodeServerStarted(){
       const that = this;
@@ -267,7 +274,7 @@ export class CodeDashboard extends Component{
               onResult.apply(null,['running'])
               return;
             } 
-         }
+          }
          that.state.coderServer = null
          onResult.apply(null,['ready'])
        })

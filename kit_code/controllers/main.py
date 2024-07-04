@@ -89,12 +89,12 @@ class Main(http.Controller):
         # params_str = urlencode(params)
         # _logger.debug('🧐 try ->open_file, urlencode params_str:%s',params_str)  
         """
-          http://localhost:3030/open?dir={}&file={}&keywords={}
+          http://localhost:3030/folder?dir={}&file={}&keywords={}
         """
-        # next_url  = 'http://localhost:3030/open?{}'.format(params_str) 
+        # next_url  = 'http://localhost:3030/folder?{}'.format(params_str) 
         # _logger.debug('🧐 try ->open_file, next_url:%s',next_url)
 
-        next_url = "http://localhost:3030/open?dir={}&file={}&keywords={}".format(dir,file,name)
+        next_url = "http://localhost:3030/folder?dir={}&file={}&keywords={}".format(dir,file,name)
         _logger.debug('🧐 try ->open_file, next_url:%s',next_url)  
         next_url = quote(next_url) 
         module_name = name

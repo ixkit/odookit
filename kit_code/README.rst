@@ -24,6 +24,7 @@ Warning
 Team
 ---------
 ixkit.com
+Artificer@ixkit.com
 
 Maintainer
 ---------

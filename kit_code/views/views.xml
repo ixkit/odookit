@@ -21,7 +21,7 @@
             <sheet > 
                 <notebook groups="base.group_user">
                     <page string="Message" >
-                         <div> Time: <field name="ts" readonly="1" /> </div>
+                         <div style="background:red" > Time: <field name="ts" readonly="1" /> </div>
                           <div> Message: <field name="message" readonly="1" /></div> 
                     </page> 
                 </notebook>

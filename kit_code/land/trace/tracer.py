@@ -3,7 +3,7 @@
 #           ixkit - odoo spy 
 #
 #@purpose           : logger as Tracer with step feature
-#@author            : iRobinZhang@hotmail.com
+#@author            : Artificer@ixkit.com
 #@date              : 2024-2-15
 #@version           : 1.0.0 
 #

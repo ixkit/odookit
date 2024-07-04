@@ -3,7 +3,7 @@
 #           ixkit - odoo code🔨 
 #
 #@team              : ixkit
-#@author            : iRobinZhang@hotmail.com
+#@author            : Artificer@ixkit.com
 #@date              : 2024-4-25
 #@version           : 1.0.0 
 #
@@ -24,8 +24,6 @@
     'website': "http://www.ixkit.com/odookit",
     "live_test_url": "http://www.ixkit.com/odookit",
     "license": "OPL-1",
-    "price" : 59,
-    "currency": "USD",
     "support": "odoo@ixkit.com",
     "depends": [
         'base', 'web'
