@@ -24,8 +24,6 @@
     'website': "http://www.ixkit.com/odookit",
     "live_test_url": "http://www.ixkit.com/odookit",
     "license": "OPL-1",
-    "price" : 149,
-    "currency": "USD",
     "support": "odoo@ixkit.com",
     "depends": [
         'base', 'web', 'website'
