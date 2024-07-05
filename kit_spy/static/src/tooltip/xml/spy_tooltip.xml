@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+ 
+<!-- open code editor -->
+<t t-name="spy.open_code" owl="1" >
+    <!-- call code server -->
+    <div t-if='view.openCode' name='kitCode' style=" position:absolute; cursor:pointer;  top: 2px;right:2px;z-index:100; width:50px;height:50;  display: flex; align-items: center;justify-content: center;" 
+    onclick="globalThis.codeServerListener.apply(this,[this])"> 
+        <span style="font-size: large;" >🔨</span>
+        <div name='view-meta' t-if="view.meta and view.meta.file" style="display:none;scorll:auto">
+            <t t-out="view.metaString"/>
+        </div>
+    </div>
+</t>
+ 
+  
+<!-- qweb Tooltip -->
+<t t-name="spy.TooltipView" owl="1" >
+   <t t-if="debug and view ">
+    <div class="o-tooltip tooltip-inner text-start" >
+        <div class="o-tooltip--string" t-if="debug || view.name" role="tooltip">
+            <t t-if="debug">
+                Template
+                <t t-if="view.name">: </t>
+                <t t-if="!view.name"> (no name)</t>
+            </t>
+            <t t-out="view.name"/>   
+        </div>
+
+        <!-- <t t-call='spy.open_code'></t> --> 
+
+        <p t-if="view.string" class="o-tooltip--help" role="tooltip">
+            <t t-out="view.string"/>
+        </p>
+        <ul t-if="view" class="o-tooltip--technical" role="tooltip"> 
+            <li t-if="class" data-item="object">
+                <span class="o-tooltip--technical--title">class:</span>
+                <t t-out="class"/>
+            </li>       
+            <li t-if="view.key" data-item="object">
+                <span class="o-tooltip--technical--title">id:</span>
+                <t t-out="view.key"/>
+            </li>   
+            
+            <t t-set="view_type" t-value="view.type"/>
+            <li t-if="view_type" data-item="view_type">
+                <span class="o-tooltip--technical--title">type:</span>
+                <t t-out="view_type"/>
+            </li>
+            <li t-if="view.mode" data-item="special">
+                <span class="o-tooltip--technical--title">mode:</span>
+                <t t-out="view.mode"/>
+            </li>              
+            <li t-if="view.arch_fs" data-item="special">
+                <span style="cursor:pointer">
+                <span class="o-tooltip--technical--title">arch_fs:</span>
+                <t t-out="view.arch_fs"/>
+                </span>
+            </li>  
+            <li t-if="view.id" data-item="object">
+                <span class="o-tooltip--technical--title">row_id:</span>
+                <t t-out="view.id"/>
+            </li> 
+
+            <li t-if="view.parent"  data-item="object">
+                <span class="o-tooltip--technical--title">parent:</span> 
+                <t t-call="spy.Tooltip_UIView" >
+                    <t t-set="view" t-value="view.parent" />
+                </t>    
+            </li>
+     
+            <li t-if="view.children_views.length &gt; 0 "  data-item="object">
+                <t t-set="list" t-value="view.children_views"></t>
+                <span class="o-tooltip--technical--title">children:</span>
+                <div style="max-height:100px; overflow: auto;" >
+                    <t t-foreach="list" t-as="item" t-key="item_index">
+                        <t t-call="spy.Tooltip_UIView" >
+                            <t t-set="view" t-value="item" />
+                        </t>   
+                    </t>
+                </div>
+            </li>             
+ 
+            <li t-if="view.template_code" data-item="object"> 
+                <span class="o-tooltip--technical--title">rendering:</span>
+                <div style="max-height:100px; overflow: auto; cursor:pointer">
+                    <plaintext > 
+                        <t t-out="view.template_code"/>
+                    </plaintext>
+                </div>
+            </li>  
+            <li t-if="view.arch_prev" data-item="object"> 
+                <span class="o-tooltip--technical--title">arch_prev:</span>
+                <div style="max-height:100px; overflow: auto; cursor:pointer">
+                    <plaintext > 
+                        <t t-out="view.arch_prev"/>
+                    </plaintext>
+                </div>
+            </li>  
+                          
+        </ul>  
+        <!-- <button class="spy-collapsible"></button>
+        <div class="spy-content">
+            <p></p>
+        </div>      -->
+    </div>  
+    </t>
+    
+</t>    
+ 
+<t t-name="spy.Tooltip_UIView" owl="1"> 
+    <div class="o-tooltip-uiview" >
+        <span class="o-tooltip--technical--title">Template:</span>
+        <t t-out="view.name"/> 
+        <ul  class="o-tooltip--technical"  role="tooltip">  
+            <li t-if="view.key" data-item="object">
+                <span class="o-tooltip--technical--title">id:</span>
+                <t t-out="view.key"/>
+            </li> 
+            <li t-if="view.arch_fs" data-item="special">
+                <span style="cursor:pointer">
+                <span class="o-tooltip--technical--title">arch_fs:</span>
+                <t t-out="view.arch_fs"/>
+                </span>
+            </li>
+            <li t-if="view.id" data-item="object">
+                <span class="o-tooltip--technical--title">row_id:</span>
+                <t t-out="view.id"/>
+            </li>                                                         
+        </ul>
+    </div>    
+</t>
+
+<!-- owl Tooltip -->
+<t t-name="spy.owlTooltipView" owl="1" >
+   <t t-if="debug ">
+    <div class="o-tooltip tooltip-inner text-start" >
+        <!-- call code server -->
+        <t t-if='view and view.meta and view.meta.file' t-call='spy.open_code'/>
+
+        <div class="o-tooltip--string"   t-if="debug || view.name" role="tooltip">
+            
+                <t t-if="debug">
+                    Template
+                    <t t-if="view.name">: </t>
+                    <t t-if="!view.name"> (no name)</t>
+                </t> 
+                <t t-out="view.name"/>
+            
+            
+        </div> 
+        <p t-if="view.string" class="o-tooltip--help" role="tooltip">
+            <t t-out="view.string"/>
+        </p>
+        <ul t-if="view" class="o-tooltip--technical" role="tooltip"> 
+            <li t-if="view.name" data-item="object">
+                <span class="o-tooltip--technical--title">name:</span>
+                <t t-out="view.name"/>
+            </li>       
+            <li t-if="view.key" data-item="object">
+                <span class="o-tooltip--technical--title">id:</span>
+                <t t-out="view.key"/>
+            </li>   
+            <li t-if="view.class" data-item="object">
+                <span class="o-tooltip--technical--title">class:</span>
+                <t t-out="view.class"/>
+            </li>            
+            <t t-set="view_type" t-value="view.type"/>
+            <li t-if="view_type" data-item="view_type">
+                <span class="o-tooltip--technical--title">type:</span>
+                <t t-out="view_type"/>
+            </li>
+                       
+            <li t-if="view.meta and view.meta.url" data-item="special" ondblclick="globalThis.codeServerListener.apply(this,['kitCode'])">
+                <span style="cursor:pointer">
+                <span class="o-tooltip--technical--title">url:</span>
+                <t t-out="view.meta.url"/>
+                </span>
+            </li>   
+            
+            <li t-if="view.meta and view.meta.file" data-item="special" ondblclick="globalThis.codeServerListener.apply(this,['kitCode'])">
+                <span style="cursor:pointer">
+                <span class="o-tooltip--technical--title">file:</span>
+                    <t t-out="view.meta.fuzzfile"/> 
+                </span>
+            </li>  
+            <li t-if="view.template_code" data-item="object"> 
+                <span class="o-tooltip--technical--title">rendering:</span>
+                <div style="max-height:100px; overflow: auto; cursor:pointer">
+                    <plaintext > 
+                        <t t-out="view.template_code"/>
+                    </plaintext>
+                </div>
+            </li>         
+        </ul>  
+        
+    </div>  
+    </t>
+    
+</t> 
+ 
+</templates>

@@ -1,0 +1,186 @@
+<t name="Products" t-name="website_sale.products">
+        <div idx="spy-&gt;website_sale.products" data-tooltip-template="spy.TooltipView" data-spy="qweb" data-tooltip-info="{&quot;debug&quot;: true, &quot;class&quot;: &quot;ir.ui.view&quot;, &quot;view&quot;: {&quot;id&quot;: 3379, &quot;name&quot;: &quot;Products&quot;, &quot;model&quot;: false, &quot;key&quot;: &quot;website_sale.products&quot;, &quot;type&quot;: &quot;qweb&quot;, &quot;mode&quot;: &quot;primary&quot;, &quot;arch_fs&quot;: &quot;website_sale/views/templates.xml&quot;, &quot;children_views&quot;: [{&quot;id&quot;: 3401, &quot;name&quot;: &quot;Attributes &amp; Variants filters&quot;, &quot;model&quot;: false, &quot;key&quot;: &quot;website_sale.products_attributes&quot;, &quot;type&quot;: &quot;qweb&quot;, &quot;mode&quot;: &quot;extension&quot;, &quot;arch_fs&quot;: &quot;website_sale/views/templates.xml&quot;}, {&quot;id&quot;: 3387, &quot;name&quot;: &quot;thumb_cover&quot;, &quot;model&quot;: false, &quot;key&quot;: &quot;website_sale.products_thumb_cover&quot;, &quot;type&quot;: &quot;qweb&quot;, &quot;mode&quot;: &quot;extension&quot;, &quot;arch_fs&quot;: &quot;website_sale/views/templates.xml&quot;}, {&quot;id&quot;: 3380, &quot;name&quot;: &quot;products_fiscal_position&quot;, &quot;model&quot;: false, &quot;key&quot;: &quot;website_sale.products_fiscal_position&quot;, &quot;type&quot;: &quot;qweb&quot;, &quot;mode&quot;: &quot;extension&quot;, &quot;arch_fs&quot;: &quot;website_sale/views/templates.xml&quot;}], &quot;template_code&quot;: &quot;&lt;t name=&amp;?quoteProducts&amp;?quote t-name=&amp;?quotewebsite_sale.products&amp;?quote&gt;\n        &lt;t t-call=&amp;?quotewebsite.layout&amp;?quote&gt;\n            &lt;t t-set=&amp;?quoteadditional_title&amp;?quote&gt;Shop&lt;/t&gt;\n            &lt;t t-set=&amp;?quotegrid_block_name&amp;?quote&gt;Grid&lt;/t&gt;\n            &lt;t t-set=&amp;?quoteproduct_block_name&amp;?quote&gt;Product&lt;/t&gt;\n\n            &lt;!-- Qweb variable defining the class suffix for navbar items.\n                 Change accordingly to the derired visual result (eg. `primary`, `dark`...)--&gt;\n            &lt;t t-set=&amp;?quotenavClass&amp;?quote t-valuef=&amp;?quotelight&amp;?quote/&gt;\n\n            &lt;!-- Check for active options: the stored value may be used in sub-templates too  --&gt;\n            &lt;t t-set=&amp;?quoteopt_wsale_categories&amp;?quote t-value=&amp;?quoteis_view_active('website_sale.products_categories')&amp;?quote/&gt;\n            &lt;t t-set=&amp;?quoteopt_wsale_attributes&amp;?quote t-value=&amp;?quoteis_view_active('website_sale.products_attributes')&amp;?quote/&gt;\n            &lt;t t-set=&amp;?quoteopt_wsale_filter_price&amp;?quote t-value=&amp;?quoteis_view_active('website_sale.filter_products_price')&amp;?quote/&gt;\n            &lt;t t-set=&amp;?quoteopt_wsale_filter_tags&amp;?quote t-value=&amp;?quoteis_view_active('website_sale.filter_products_tags')&amp;?quote/&gt;\n\n            &lt;t t-set=&amp;?quoteopt_wsale_categories_top&amp;?quote t-value=&amp;?quoteis_view_active('website_sale.products_categories_top')&amp;?quote/&gt;\n            &lt;t t-set=&amp;?quoteopt_wsale_attributes_top&amp;?quote t-value=&amp;?quoteis_view_active('website_sale.products_attributes_top')&amp;?quote/&gt;\n\n            &lt;t t-set=&amp;?quotewebsite_sale_pricelists&amp;?quote t-value=&amp;?quotewebsite.get_pricelist_available(show_visible=True)&amp;?quote/&gt;\n            &lt;t t-set=&amp;?quotewebsite_sale_sortable&amp;?quote t-value=&amp;?quotewebsite._get_product_sort_mapping()&amp;?quote/&gt;\n\n            &lt;t t-set=&amp;?quotehasLeftColumn&amp;?quote t-value=&amp;?quoteopt_wsale_categories or opt_wsale_attributes&amp;?quote/&gt;\n\n            &lt;t t-set=&amp;?quoteisFilteringByPrice&amp;?quote t-if=&amp;?quoteopt_wsale_filter_price&amp;?quote t-value=&amp;?quotefloat_round(available_min_price, 2) != float_round(min_price, 2) or float_round(available_max_price, 2) != float_round(max_price, 2)&amp;?quote/&gt;\n            &lt;t t-set=&amp;?quotehasPricelistDropdown&amp;?quote t-value=&amp;?quotewebsite_sale_pricelists and len(website_sale_pricelists)&amp;gt;1&amp;?quote/&gt;\n            &lt;t t-set=&amp;?quoteisSortingBy&amp;?quote t-value=&amp;?quote[sort for sort in website_sale_sortable if sort[0]==request.params.get('order', '')]&amp;?quote/&gt;\n\n            &lt;div id=&amp;?quotewrap&amp;?quote class=&amp;?quotejs_sale o_wsale_products_page&amp;?quote&gt;\n                &lt;div class=&amp;?quoteoe_structure oe_empty oe_structure_not_nearest&amp;?quote id=&amp;?quoteoe_structure_website_sale_products_1&amp;?quote/&gt;\n                &lt;div class=&amp;?quotecontainer oe_website_sale pt-2&amp;?quote&gt;\n                    &lt;div class=&amp;?quoterow o_wsale_products_main_row align-items-start flex-nowrap&amp;?quote&gt;\n                        &lt;aside t-if=&amp;?quotehasLeftColumn&amp;?quote id=&amp;?quoteproducts_grid_before&amp;?quote class=&amp;?quoted-none d-lg-block position-sticky col-3 px-3 clearfix&amp;?quote&gt;\n                            &lt;div class=&amp;?quoteo_wsale_products_grid_before_rail vh-100 ms-n2 mt-n2 pt-2 pe-lg-2 pb-lg-5 ps-2 overflow-y-scroll&amp;?quote&gt;\n                                &lt;div t-if=&amp;?quoteopt_wsale_categories&amp;?quote class=&amp;?quoteproducts_categories mb-3&amp;?quote&gt;\n                                    &lt;t t-call=&amp;?quotewebsite_sale.products_categories_list&amp;?quote/&gt;\n                                &lt;/div&gt;\n                                &lt;div class=&amp;?quoteproducts_attributes_filters&amp;?quote&gt;\n            &lt;div id=&amp;?quotewsale_products_attributes_collapse&amp;?quote class=&amp;?quote position-relative&amp;?quote&gt;\n                &lt;form t-if=&amp;?quoteattributes or all_tags&amp;?quote class=&amp;?quotejs_attributes position-relative mb-2&amp;?quote method=&amp;?quoteget&amp;?quote&gt;\n                    &lt;input t-if=&amp;?quotecategory&amp;?quote type=&amp;?quotehidden&amp;?quote name=&amp;?quotecategory&amp;?quote t-att-value=&amp;?quotecategory.id&amp;?quote/&gt;\n                    &lt;input type=&amp;?quotehidden&amp;?quote name=&amp;?quotesearch&amp;?quote t-att-value=&amp;?quotesearch&amp;?quote/&gt;\n                    &lt;input type=&amp;?quotehidden&amp;?quote name=&amp;?quoteorder&amp;?quote t-att-value=&amp;?quoteorder&amp;?quote/&gt;\n                    &lt;a t-if=&amp;?quoteattrib_values or tags&amp;?quote t-att-href=&amp;?quotekeep('/shop'+ ('/category/'+slug(category)) if category else None, attrib=0, tags=0)&amp;?quote t-attf-class=&amp;?quotebtn btn-{{navClass}} d-flex align-items-center py-1 mb-2&amp;?quote&gt;\n                        &lt;small class=&amp;?quotemx-auto&amp;?quote&gt;&lt;b&gt;Clear Filters&lt;/b&gt;&lt;/small&gt;\n                        &lt;i class=&amp;?quoteoi oi-close&amp;?quote/&gt;\n                    &lt;/a&gt;\n                    &lt;t t-foreach=&amp;?quoteattributes&amp;?quote t-as=&amp;?quotea&amp;?quote&gt;\n                        &lt;t t-cache=&amp;?quotea,attrib_set&amp;?quote&gt;\n                            &lt;div class=&amp;?quoteaccordion-item nav-item mb-1 border-0&amp;?quote t-if=&amp;?quotea.value_ids and len(a.value_ids) &amp;gt; 1&amp;?quote&gt;\n                                &lt;h6 class=&amp;?quotemb-3&amp;?quote&gt;\n                                    &lt;b class=&amp;?quoteo_products_attributes_title d-none d-lg-block&amp;?quote t-field=&amp;?quotea.name&amp;?quote/&gt;\n                                &lt;/h6&gt;\n                                &lt;div t-attf-id=&amp;?quoteo_products_attributes_{{a.id}}&amp;?quote class=&amp;?quote&amp;?quote&gt;\n                                    &lt;t t-if=&amp;?quotea.display_type == 'select'&amp;?quote&gt;\n                                        &lt;select class=&amp;?quoteform-select css_attribute_select mb-2&amp;?quote name=&amp;?quoteattrib&amp;?quote&gt;\n                                            &lt;option value=&amp;?quote&amp;?quote selected=&amp;?quotetrue&amp;?quote&gt;-&lt;/option&gt;\n                                            &lt;t t-foreach=&amp;?quotea.value_ids&amp;?quote t-as=&amp;?quotev&amp;?quote&gt;\n                                                &lt;option t-att-value=&amp;?quote'%s-%s' % (a.id,v.id)&amp;?quote t-esc=&amp;?quotev.name&amp;?quote t-att-selected=&amp;?quotev.id in attrib_set&amp;?quote/&gt;\n                                            &lt;/t&gt;\n                                        &lt;/select&gt;\n                                    &lt;/t&gt;\n                                    &lt;div t-elif=&amp;?quotea.display_type == 'color'&amp;?quote class=&amp;?quotemb-3&amp;?quote&gt;\n                                        &lt;t t-call=&amp;?quotewebsite_sale.o_wsale_offcanvas_color_attribute&amp;?quote/&gt;\n                                    &lt;/div&gt;\n                                    &lt;div t-elif=&amp;?quotea.display_type in ('radio', 'pills', 'multi')&amp;?quote class=&amp;?quoteflex-column mb-3&amp;?quote&gt;\n                                        &lt;t t-foreach=&amp;?quotea.value_ids&amp;?quote t-as=&amp;?quotev&amp;?quote&gt;\n                                            &lt;div class=&amp;?quoteform-check mb-1&amp;?quote&gt;\n                                                &lt;input type=&amp;?quotecheckbox&amp;?quote name=&amp;?quoteattrib&amp;?quote class=&amp;?quoteform-check-input&amp;?quote t-att-id=&amp;?quote'%s-%s' % (a.id,v.id)&amp;?quote t-att-value=&amp;?quote'%s-%s' % (a.id,v.id)&amp;?quote t-att-checked=&amp;?quote'checked' if v.id in attrib_set else None&amp;?quote/&gt;\n                                                &lt;label class=&amp;?quoteform-check-label fw-normal&amp;?quote t-att-for=&amp;?quote'%s-%s' % (a.id,v.id)&amp;?quote t-field=&amp;?quotev.name&amp;?quote/&gt;\n                                            &lt;/div&gt;\n                                        &lt;/t&gt;\n                                    &lt;/div&gt;\n                                &lt;/div&gt;\n                            &lt;/div&gt;\n                        &lt;/t&gt;\n                    &lt;/t&gt;\n                    &lt;t t-if=&amp;?quoteopt_wsale_filter_tags and opt_wsale_attributes&amp;?quote t-call=&amp;?quotewebsite_sale.filter_products_tags&amp;?quote&gt;\n                        &lt;t t-set=&amp;?quoteall_tags&amp;?quote t-value=&amp;?quoteall_tags&amp;?quote/&gt;\n                    &lt;/t&gt;\n                &lt;/form&gt;\n            &lt;/div&gt;&lt;/div&gt;\n                                &lt;t t-if=&amp;?quoteopt_wsale_filter_price and opt_wsale_attributes&amp;?quote t-call=&amp;?quotewebsite_sale.filter_products_price&amp;?quote/&gt;\n                            &lt;/div&gt;\n                        &lt;/aside&gt;\n                        &lt;div id=&amp;?quoteproducts_grid&amp;?quote t-attf-class=&amp;?quote#{'o_wsale_layout_list' if layout_mode == 'list' else ''} {{'col-lg-9' if hasLeftColumn else 'col-12'}}&amp;?quote&gt;\n                            &lt;t t-call=&amp;?quotewebsite_sale.products_breadcrumb&amp;?quote&gt;\n                                &lt;t t-set=&amp;?quote_classes&amp;?quote t-valuef=&amp;?quoted-none d-lg-flex w-100 p-0 small&amp;?quote/&gt;\n                            &lt;/t&gt;\n                            &lt;div class=&amp;?quoteproducts_header btn-toolbar flex-nowrap align-items-center justify-content-between gap-3 mb-3&amp;?quote&gt;\n                                &lt;t t-if=&amp;?quoteis_view_active('website_sale.search')&amp;?quote t-call=&amp;?quotewebsite_sale.search&amp;?quote&gt;\n                                    &lt;t t-set=&amp;?quotesearch&amp;?quote t-value=&amp;?quoteoriginal_search or search&amp;?quote/&gt;\n                                    &lt;t t-set=&amp;?quote_form_classes&amp;?quote t-valuef=&amp;?quoted-lg-inline {{'d-inline' if not category else 'd-none'}}&amp;?quote/&gt;\n                                &lt;/t&gt;\n\n                                &lt;t t-call=&amp;?quotewebsite_sale.pricelist_list&amp;?quote t-cache=&amp;?quotepricelist&amp;?quote&gt;\n                                    &lt;t t-set=&amp;?quote_classes&amp;?quote t-valuef=&amp;?quoted-none d-lg-inline&amp;?quote/&gt;\n                                &lt;/t&gt;\n\n                                &lt;t t-if=&amp;?quoteis_view_active('website_sale.sort')&amp;?quote t-call=&amp;?quotewebsite_sale.sort&amp;?quote&gt;\n                                    &lt;t t-set=&amp;?quote_classes&amp;?quote t-valuef=&amp;?quoted-none d-lg-inline-block&amp;?quote/&gt;\n                                &lt;/t&gt;\n\n                                &lt;div t-if=&amp;?quotecategory&amp;?quote class=&amp;?quoted-flex align-items-center d-lg-none me-auto&amp;?quote&gt;\n                                    &lt;t t-if=&amp;?quotenot category.parent_id&amp;?quote t-set=&amp;?quotebackUrl&amp;?quote t-valuef=&amp;?quote/shop&amp;?quote/&gt;\n                                    &lt;t t-else=&amp;?quote&amp;?quote t-set=&amp;?quotebackUrl&amp;?quote t-value=&amp;?quotekeep('/shop/category/' + slug(category.parent_id), category=0)&amp;?quote/&gt;\n\n                                    &lt;a t-attf-class=&amp;?quotebtn btn-{{navClass}} me-2&amp;?quote t-att-href=&amp;?quotecategory.parent_id and keep('/shop/category/' + slug(category.parent_id), category=0) or '/shop'&amp;?quote&gt;\n                                        &lt;i class=&amp;?quotefa fa-angle-left&amp;?quote/&gt;\n                                    &lt;/a&gt;\n                                    &lt;h4 t-out=&amp;?quotecategory.name&amp;?quote class=&amp;?quotemb-0 me-auto&amp;?quote/&gt;\n                                &lt;/div&gt;\n\n                                &lt;t t-if=&amp;?quoteis_view_active('website_sale.add_grid_or_list_option')&amp;?quote t-call=&amp;?quotewebsite_sale.add_grid_or_list_option&amp;?quote&gt;\n                                    &lt;t t-set=&amp;?quote_classes&amp;?quote t-valuef=&amp;?quoted-flex&amp;?quote/&gt;\n                                &lt;/t&gt;\n\n                                &lt;button t-if=&amp;?quoteis_view_active('website_sale.sort') or opt_wsale_categories or opt_wsale_attributes or opt_wsale_attributes_top&amp;?quote t-attf-class=&amp;?quotebtn btn-{{navClass}} position-relative {{not opt_wsale_attributes_top and 'd-lg-none'}}&amp;?quote data-bs-toggle=&amp;?quoteoffcanvas&amp;?quote data-bs-target=&amp;?quote#o_wsale_offcanvas&amp;?quote&gt;\n                                    &lt;i class=&amp;?quotefa fa-sliders&amp;?quote/&gt;\n                                    &lt;span t-if=&amp;?quoteisFilteringByPrice or attrib_set or tags&amp;?quote t-attf-class=&amp;?quoteposition-absolute top-0 start-100 translate-middle border border-{{navClass}} rounded-circle bg-danger p-1&amp;?quote&gt;&lt;span class=&amp;?quotevisually-hidden&amp;?quote&gt;filters active&lt;/span&gt;&lt;/span&gt;\n                                &lt;/button&gt;\n                            &lt;/div&gt;\n\n                            &lt;t t-if=&amp;?quoteopt_wsale_categories_top&amp;?quote t-call=&amp;?quotewebsite_sale.filmstrip_categories&amp;?quote/&gt;\n\n                            &lt;div t-if=&amp;?quoteoriginal_search and products&amp;?quote class=&amp;?quotealert alert-warning mt8&amp;?quote&gt;\n                                No results found for '&lt;span t-esc=&amp;?quoteoriginal_search&amp;?quote/&gt;'. Showing results for '&lt;span t-esc=&amp;?quotesearch&amp;?quote/&gt;'.\n                            &lt;/div&gt;\n\n                            &lt;t t-if=&amp;?quotecategory&amp;?quote&gt;\n                                &lt;t t-set=&amp;?quoteeditor_msg&amp;?quote&gt;Drag building blocks here to customize the header for &amp;?quote&lt;t t-esc=&amp;?quotecategory.name&amp;?quote/&gt;&amp;?quote category.&lt;/t&gt;\n                                &lt;div class=&amp;?quotemb16&amp;?quote id=&amp;?quotecategory_header&amp;?quote t-att-data-editor-message=&amp;?quoteeditor_msg&amp;?quote t-field=&amp;?quotecategory.website_description&amp;?quote/&gt;\n                            &lt;/t&gt;\n\n                            &lt;div t-if=&amp;?quoteproducts&amp;?quote class=&amp;?quoteo_wsale_products_grid_table_wrapper pt-3 pt-lg-0&amp;?quote&gt;\n                                &lt;table class=&amp;?quotetable table-borderless h-100 m-0 o_wsale_context_thumb_cover&amp;?quote t-att-data-ppg=&amp;?quoteppg&amp;?quote t-att-data-ppr=&amp;?quoteppr&amp;?quote t-att-data-default-sort=&amp;?quotewebsite.shop_default_sort&amp;?quote t-att-data-name=&amp;?quotegrid_block_name&amp;?quote&gt;\n                                    &lt;colgroup t-ignore=&amp;?quotetrue&amp;?quote&gt;\n                                        &lt;!-- Force the number of columns (useful when only one row of (x &lt; ppr) products) --&gt;\n                                        &lt;col t-foreach=&amp;?quoteppr&amp;?quote t-as=&amp;?quotep&amp;?quote/&gt;\n                                    &lt;/colgroup&gt;\n                                    &lt;tbody&gt;\n                                        &lt;tr t-foreach=&amp;?quotebins&amp;?quote t-as=&amp;?quotetr_product&amp;?quote&gt;\n                                            &lt;t t-foreach=&amp;?quotetr_product&amp;?quote t-as=&amp;?quotetd_product&amp;?quote&gt;\n                                                &lt;t t-if=&amp;?quotetd_product&amp;?quote&gt;\n                                                    &lt;!-- We use t-attf-class here to allow easier customization --&gt;\n                                                    &lt;td t-att-colspan=&amp;?quotetd_product['x'] != 1 and td_product['x']&amp;?quote t-att-rowspan=&amp;?quotetd_product['y'] != 1 and td_product['y']&amp;?quote t-attf-class=&amp;?quoteoe_product&amp;?quote t-att-data-ribbon-id=&amp;?quotetd_product['ribbon'].id&amp;?quote t-att-data-name=&amp;?quoteproduct_block_name&amp;?quote&gt;\n                                                        &lt;div t-attf-class=&amp;?quoteo_wsale_product_grid_wrapper position-relative h-100 o_wsale_product_grid_wrapper_#{td_product['x']}_#{td_product['y']}&amp;?quote&gt;\n                                                            &lt;t t-call=&amp;?quotewebsite_sale.products_item&amp;?quote&gt;\n                                                                &lt;t t-set=&amp;?quoteproduct&amp;?quote t-value=&amp;?quotetd_product['product']&amp;?quote/&gt;\n                                                            &lt;/t&gt;\n                                                        &lt;/div&gt;\n                                                    &lt;/td&gt;\n                                                &lt;/t&gt;\n                                                &lt;td t-else=&amp;?quote&amp;?quote/&gt;\n                                            &lt;/t&gt;\n                                        &lt;/tr&gt;\n                                    &lt;/tbody&gt;\n                                &lt;/table&gt;\n                            &lt;/div&gt;\n                            &lt;div t-nocache=&amp;?quoteget the actual search&amp;?quote t-else=&amp;?quote&amp;?quote class=&amp;?quotetext-center text-muted mt128 mb256&amp;?quote&gt;\n                                &lt;t t-if=&amp;?quotenot search&amp;?quote&gt;\n                                    &lt;h3 class=&amp;?quotemt8&amp;?quote&gt;No product defined&lt;/h3&gt;\n                                    &lt;p t-if=&amp;?quotecategory&amp;?quote&gt;No product defined in this category.&lt;/p&gt;\n                                &lt;/t&gt;\n                                &lt;t t-else=&amp;?quote&amp;?quote&gt;\n                                    &lt;h3 class=&amp;?quotemt8&amp;?quote&gt;No results&lt;/h3&gt;\n                                    &lt;p&gt;No results for &amp;?quote&lt;strong t-esc=&amp;?quotesearch&amp;?quote/&gt;&amp;?quote&lt;t t-if=&amp;?quotecategory&amp;?quote&gt; in category &amp;?quote&lt;strong t-esc=&amp;?quotecategory.display_name&amp;?quote/&gt;&amp;?quote&lt;/t&gt;.&lt;/p&gt;\n                                &lt;/t&gt;\n                                &lt;p t-ignore=&amp;?quotetrue&amp;?quote groups=&amp;?quotesales_team.group_sale_manager&amp;?quote&gt;Click &lt;i&gt;'New'&lt;/i&gt; in the top-right corner to create your first product.&lt;/p&gt;\n                            &lt;/div&gt;\n                            &lt;div class=&amp;?quoteproducts_pager d-flex justify-content-center pt-5 pb-3&amp;?quote&gt;\n                                &lt;t t-call=&amp;?quotewebsite.pager&amp;?quote/&gt;\n                            &lt;/div&gt;\n                        &lt;/div&gt;\n                    &lt;/div&gt;\n\n                    &lt;t t-call=&amp;?quotewebsite_sale.o_wsale_offcanvas&amp;?quote/&gt;\n                &lt;/div&gt;\n                &lt;div class=&amp;?quoteoe_structure oe_empty oe_structure_not_nearest&amp;?quote id=&amp;?quoteoe_structure_website_sale_products_2&amp;?quote/&gt;\n            &lt;/div&gt;\n        &lt;/t&gt;\n    &lt;/t&gt;&quot;}}" t-js="true" o-spy="qweb">
+        
+        <t t-call="website.layout">
+            <t t-set="additional_title">Shop</t>
+            <t t-set="grid_block_name">Grid</t>
+            <t t-set="product_block_name">Product</t>
+
+            <!-- Qweb variable defining the class suffix for navbar items.
+                 Change accordingly to the derired visual result (eg. `primary`, `dark`...)-->
+            <t t-set="navClass" t-valuef="light"/>
+
+            <!-- Check for active options: the stored value may be used in sub-templates too  -->
+            <t t-set="opt_wsale_categories" t-value="is_view_active('website_sale.products_categories')"/>
+            <t t-set="opt_wsale_attributes" t-value="is_view_active('website_sale.products_attributes')"/>
+            <t t-set="opt_wsale_filter_price" t-value="is_view_active('website_sale.filter_products_price')"/>
+            <t t-set="opt_wsale_filter_tags" t-value="is_view_active('website_sale.filter_products_tags')"/>
+
+            <t t-set="opt_wsale_categories_top" t-value="is_view_active('website_sale.products_categories_top')"/>
+            <t t-set="opt_wsale_attributes_top" t-value="is_view_active('website_sale.products_attributes_top')"/>
+
+            <t t-set="website_sale_pricelists" t-value="website.get_pricelist_available(show_visible=True)"/>
+            <t t-set="website_sale_sortable" t-value="website._get_product_sort_mapping()"/>
+
+            <t t-set="hasLeftColumn" t-value="opt_wsale_categories or opt_wsale_attributes"/>
+
+            <t t-set="isFilteringByPrice" t-if="opt_wsale_filter_price" t-value="float_round(available_min_price, 2) != float_round(min_price, 2) or float_round(available_max_price, 2) != float_round(max_price, 2)"/>
+            <t t-set="hasPricelistDropdown" t-value="website_sale_pricelists and len(website_sale_pricelists)&gt;1"/>
+            <t t-set="isSortingBy" t-value="[sort for sort in website_sale_sortable if sort[0]==request.params.get('order', '')]"/>
+
+            <div id="wrap" class="js_sale o_wsale_products_page">
+                <div class="oe_structure oe_empty oe_structure_not_nearest" id="oe_structure_website_sale_products_1"/>
+                <div class="container oe_website_sale pt-2">
+                    <div class="row o_wsale_products_main_row align-items-start flex-nowrap">
+                        <aside t-if="hasLeftColumn" id="products_grid_before" class="d-none d-lg-block position-sticky col-3 px-3 clearfix">
+                            <div class="o_wsale_products_grid_before_rail vh-100 ms-n2 mt-n2 pt-2 pe-lg-2 pb-lg-5 ps-2 overflow-y-scroll">
+                                <div t-if="opt_wsale_categories" class="products_categories mb-3">
+                                    <t t-call="website_sale.products_categories_list"/>
+                                </div>
+                                <div class="products_attributes_filters">
+            <div id="wsale_products_attributes_collapse" class=" position-relative">
+                <form t-if="attributes or all_tags" class="js_attributes position-relative mb-2" method="get">
+                    <input t-if="category" type="hidden" name="category" t-att-value="category.id"/>
+                    <input type="hidden" name="search" t-att-value="search"/>
+                    <input type="hidden" name="order" t-att-value="order"/>
+                    <a t-if="attrib_values or tags" t-att-href="keep('/shop'+ ('/category/'+slug(category)) if category else None, attrib=0, tags=0)" t-attf-class="btn btn-{{navClass}} d-flex align-items-center py-1 mb-2">
+                        <small class="mx-auto"><b>Clear Filters</b></small>
+                        <i class="oi oi-close"/>
+                    </a>
+                    <t t-foreach="attributes" t-as="a">
+                        <t t-cache="a,attrib_set">
+                            <div class="accordion-item nav-item mb-1 border-0" t-if="a.value_ids and len(a.value_ids) &gt; 1">
+                                <h6 class="mb-3">
+                                    <b class="o_products_attributes_title d-none d-lg-block" t-field="a.name"/>
+                                </h6>
+                                <div t-attf-id="o_products_attributes_{{a.id}}" class="">
+                                    <t t-if="a.display_type == 'select'">
+                                        <select class="form-select css_attribute_select mb-2" name="attrib">
+                                            <option value="" selected="true">-</option>
+                                            <t t-foreach="a.value_ids" t-as="v">
+                                                <option t-att-value="'%s-%s' % (a.id,v.id)" t-esc="v.name" t-att-selected="v.id in attrib_set"/>
+                                            </t>
+                                        </select>
+                                    </t>
+                                    <div t-elif="a.display_type == 'color'" class="mb-3">
+                                        <t t-call="website_sale.o_wsale_offcanvas_color_attribute"/>
+                                    </div>
+                                    <div t-elif="a.display_type in ('radio', 'pills', 'multi')" class="flex-column mb-3">
+                                        <t t-foreach="a.value_ids" t-as="v">
+                                            <div class="form-check mb-1">
+                                                <input type="checkbox" name="attrib" class="form-check-input" t-att-id="'%s-%s' % (a.id,v.id)" t-att-value="'%s-%s' % (a.id,v.id)" t-att-checked="'checked' if v.id in attrib_set else None"/>
+                                                <label class="form-check-label fw-normal" t-att-for="'%s-%s' % (a.id,v.id)" t-field="v.name"/>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+                    <t t-if="opt_wsale_filter_tags and opt_wsale_attributes" t-call="website_sale.filter_products_tags">
+                        <t t-set="all_tags" t-value="all_tags"/>
+                    </t>
+                </form>
+            </div></div>
+                                <t t-if="opt_wsale_filter_price and opt_wsale_attributes" t-call="website_sale.filter_products_price"/>
+                            </div>
+                        </aside>
+                        <div id="products_grid" t-attf-class="#{'o_wsale_layout_list' if layout_mode == 'list' else ''} {{'col-lg-9' if hasLeftColumn else 'col-12'}}">
+                            <t t-call="website_sale.products_breadcrumb">
+                                <t t-set="_classes" t-valuef="d-none d-lg-flex w-100 p-0 small"/>
+                            </t>
+                            <div class="products_header btn-toolbar flex-nowrap align-items-center justify-content-between gap-3 mb-3">
+                                <t t-if="is_view_active('website_sale.search')" t-call="website_sale.search">
+                                    <t t-set="search" t-value="original_search or search"/>
+                                    <t t-set="_form_classes" t-valuef="d-lg-inline {{'d-inline' if not category else 'd-none'}}"/>
+                                </t>
+
+                                <t t-call="website_sale.pricelist_list" t-cache="pricelist">
+                                    <t t-set="_classes" t-valuef="d-none d-lg-inline"/>
+                                </t>
+
+                                <t t-if="is_view_active('website_sale.sort')" t-call="website_sale.sort">
+                                    <t t-set="_classes" t-valuef="d-none d-lg-inline-block"/>
+                                </t>
+
+                                <div t-if="category" class="d-flex align-items-center d-lg-none me-auto">
+                                    <t t-if="not category.parent_id" t-set="backUrl" t-valuef="/shop"/>
+                                    <t t-else="" t-set="backUrl" t-value="keep('/shop/category/' + slug(category.parent_id), category=0)"/>
+
+                                    <a t-attf-class="btn btn-{{navClass}} me-2" t-att-href="category.parent_id and keep('/shop/category/' + slug(category.parent_id), category=0) or '/shop'">
+                                        <i class="fa fa-angle-left"/>
+                                    </a>
+                                    <h4 t-out="category.name" class="mb-0 me-auto"/>
+                                </div>
+
+                                <t t-if="is_view_active('website_sale.add_grid_or_list_option')" t-call="website_sale.add_grid_or_list_option">
+                                    <t t-set="_classes" t-valuef="d-flex"/>
+                                </t>
+
+                                <button t-if="is_view_active('website_sale.sort') or opt_wsale_categories or opt_wsale_attributes or opt_wsale_attributes_top" t-attf-class="btn btn-{{navClass}} position-relative {{not opt_wsale_attributes_top and 'd-lg-none'}}" data-bs-toggle="offcanvas" data-bs-target="#o_wsale_offcanvas">
+                                    <i class="fa fa-sliders"/>
+                                    <span t-if="isFilteringByPrice or attrib_set or tags" t-attf-class="position-absolute top-0 start-100 translate-middle border border-{{navClass}} rounded-circle bg-danger p-1"><span class="visually-hidden">filters active</span></span>
+                                </button>
+                            </div>
+
+                            <t t-if="opt_wsale_categories_top" t-call="website_sale.filmstrip_categories"/>
+
+                            <div t-if="original_search and products" class="alert alert-warning mt8">
+                                No results found for '<span t-esc="original_search"/>'. Showing results for '<span t-esc="search"/>'.
+                            </div>
+
+                            <t t-if="category">
+                                <t t-set="editor_msg">Drag building blocks here to customize the header for "<t t-esc="category.name"/>" category.</t>
+                                <div class="mb16" id="category_header" t-att-data-editor-message="editor_msg" t-field="category.website_description"/>
+                            </t>
+
+                            <div t-if="products" class="o_wsale_products_grid_table_wrapper pt-3 pt-lg-0">
+                                <table class="table table-borderless h-100 m-0 o_wsale_context_thumb_cover" t-att-data-ppg="ppg" t-att-data-ppr="ppr" t-att-data-default-sort="website.shop_default_sort" t-att-data-name="grid_block_name">
+                                    <colgroup t-ignore="true">
+                                        <!-- Force the number of columns (useful when only one row of (x < ppr) products) -->
+                                        <col t-foreach="ppr" t-as="p"/>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr t-foreach="bins" t-as="tr_product">
+                                            <t t-foreach="tr_product" t-as="td_product">
+                                                <t t-if="td_product">
+                                                    <!-- We use t-attf-class here to allow easier customization -->
+                                                    <td t-att-colspan="td_product['x'] != 1 and td_product['x']" t-att-rowspan="td_product['y'] != 1 and td_product['y']" t-attf-class="oe_product" t-att-data-ribbon-id="td_product['ribbon'].id" t-att-data-name="product_block_name">
+                                                        <div t-attf-class="o_wsale_product_grid_wrapper position-relative h-100 o_wsale_product_grid_wrapper_#{td_product['x']}_#{td_product['y']}">
+                                                            <t t-call="website_sale.products_item">
+                                                                <t t-set="product" t-value="td_product['product']"/>
+                                                            </t>
+                                                        </div>
+                                                    </td>
+                                                </t>
+                                                <td t-else=""/>
+                                            </t>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div t-nocache="get the actual search" t-else="" class="text-center text-muted mt128 mb256">
+                                <t t-if="not search">
+                                    <h3 class="mt8">No product defined</h3>
+                                    <p t-if="category">No product defined in this category.</p>
+                                </t>
+                                <t t-else="">
+                                    <h3 class="mt8">No results</h3>
+                                    <p>No results for "<strong t-esc="search"/>"<t t-if="category"> in category "<strong t-esc="category.display_name"/>"</t>.</p>
+                                </t>
+                                <p t-ignore="true" groups="sales_team.group_sale_manager">Click <i>'New'</i> in the top-right corner to create your first product.</p>
+                            </div>
+                            <div class="products_pager d-flex justify-content-center pt-5 pb-3">
+                                <t t-call="website.pager"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <t t-call="website_sale.o_wsale_offcanvas"/>
+                </div>
+                <div class="oe_structure oe_empty oe_structure_not_nearest" id="oe_structure_website_sale_products_2"/>
+            </div>
+        </t>
+    </div>
+    
+    </t>

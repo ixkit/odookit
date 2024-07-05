@@ -1,0 +1,76 @@
+// focus element with twinkle 
+.focusBox {  
+    border: 1.5px dashed red;
+    animation: borderTwinkle 1.5s infinite linear; 
+} 
+ 
+@keyframes borderTwinkle { 
+    0%, 50%, 100% { border-color: transparent; }
+    25%, 75% { border-color: red; }
+}
+ 
+// tooltip background 
+$spy-tooltip-bg: #FFECA1;
+$spy-tooltip-font-color : black;
+
+.tooltip-inner{
+  background-color: $spy-tooltip-bg;
+  color: $spy-tooltip-font-color;
+}
+
+.o-tooltip{
+  box-shadow: 5px 5px 2.5px #888888;
+  .o-tooltip{
+    box-shadow: none;
+  }
+
+  .o-tooltip--string, .o-tooltip--technical--title { 
+    color: $spy-tooltip-font-color; 
+  }
+
+  + .popover-arrow {
+    --popover-arrow-color: #FFECA1 !important;
+  } 
+}
+
+// item
+.o-tooltip-uiview{
+    padding-left: 8px; 
+}
+
+// collapse
+.spy-collapsible {
+    background-color: #777777a8;
+    color: white;
+    cursor: pointer;
+    padding: 2px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    //font-size: 15px;
+  }
+  
+  .spy-active, .spy-collapsible:hover {
+    background-color: #555;
+  }
+  
+  .spy-collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .spy-active:after {
+    content: "\2212";
+  }
+  
+  .spy-content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+  }

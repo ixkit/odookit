@@ -11,7 +11,7 @@
 
 {
     "name": "Odoo Code🔨",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.1.0",
 
     "summary": """ 
         Help you build Odoo application online, super speed development process🚀
