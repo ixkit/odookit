@@ -181,7 +181,7 @@
             <li t-if="view.meta and view.meta.file" data-item="special" ondblclick="globalThis.codeServerListener.apply(this,['kitCode'])">
                 <span style="cursor:pointer">
                 <span class="o-tooltip--technical--title">file:</span>
-                    <t t-out="view.meta.fuzzfile"/> 
+                    <t t-out="view.meta.file"/> 
                 </span>
             </li>  
             <li t-if="view.template_code" data-item="object"> 

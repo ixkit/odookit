@@ -13,18 +13,18 @@ const website_systray = registry.category("website_systray");
 
 website_systray.addEventListener("UPDATE",( ...args) => {
 //website_systray.addEventListener("UPDATE",({ detail: { operation, key,value } }) => {    
-    // console.log(...args);
+    // 
     const detail = args[0].detail
     
     const {operation,key,value} = detail;
     
     if (operation === 'add' && 'EditWebsite' === key){ 
-        console.log('🪝🚀, inject EditWebsite', key, value); 
+        
         on_hook_edit(value);
         return;
     }
     if (operation === 'add' && 'NewContent' === key){ 
-        console.log('🪝🚀, inject NewContent', key, value); 
+        
         on_hook_new_content(value);
     }
 });

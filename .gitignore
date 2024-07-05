@@ -169,3 +169,5 @@ __pycache__/*
 
 kit_code/vendors/
 kit_code/vendors/**
+
+timeline/private

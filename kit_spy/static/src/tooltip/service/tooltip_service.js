@@ -97,7 +97,7 @@ const openCodeServerPage= async (metaStr)=>{
 const codeServerHander ={
     start(){
         const onClickEditCode=(elt)=>{
-            console.debug('🧐 onClickEditCode',this,elt,arguments);
+            
             if (!elt) return ;
             if (typeof elt === "string") {
                 const list = document.getElementsByName(elt);
@@ -124,7 +124,7 @@ const codeServerHander ={
         }
 
         function setupCodeServerListener(){
-            console.debug('🧐 setupCodeServerListener',this);
+            
             let codeServerListener = globalThis.codeServerListener
             if (!codeServerListener){
                 codeServerListener = (e)=>{
@@ -146,13 +146,13 @@ const codeServerHander ={
     refreshCodeServerInfo(){
         //ping code server  
         const fetchServerInfo=()=>{
-            console.debug('🧐 fetchServerInfo that?',);
+            
             const result = jsonrpc('/code🔨/api/ping', {
             }).then(function (data) {
-                console.debug('🧐 fetchServerInfo response data?',data);
+                
                 codeServerHander.setCodeServer(data)
             }).catch((x)=>{
-                console.debug('❌ fetchServerInfo error?',x);
+                
                 codeServerHander.setCodeServer(null)
              }); 
         }
@@ -175,7 +175,7 @@ export const tooltipService = {
 
         const focused_elts = new Map();
         function _clean_all_focused(){
-            console.log('🧐 _clean_all_focused');
+            
             for (var [key, value] of focused_elts.entries()) {
                 _toggle_elt_focus_effect(value,false);
             } 
@@ -240,7 +240,7 @@ export const tooltipService = {
          */
         function openTooltip(el, { tooltip = "", template, info, position, delay = OPEN_DELAY }) {
             target = el;
-            console.debug('🧐 openTooltip, target?',target );
+            
             cleanup();
             //@@ by Robin
             if (!tooltip && !template) {
@@ -251,7 +251,7 @@ export const tooltipService = {
             openTooltipTimeout = browser.setTimeout(() => {
                 // verify that the element is still in the DOM
                 if (target.isConnected) {
-                    console.log('🧐popover.add apply on target?',target )
+                    
                     closeTooltip = popover.add(
                         target,
                         Tooltip,
@@ -261,7 +261,7 @@ export const tooltipService = {
                     // Prevent title from showing on a parent at the same time
                     target.title = ""; 
                    
-                    console.log('🧐 execute openTooltipTimeout,popover? closeTooltip?',popover,closeTooltip )
+                    
                     hookPopover.onUpdate({target,popover})
                 }
             }, delay);
@@ -333,11 +333,11 @@ export const tooltipService = {
                    //params.position = 'top'
                 }
                 if (dataset.tooltipInfo) {
-                    console.debug('try json parse:',dataset.tooltipInfo)
+                    
                     
                     params.info = _safe_parse_json_str(dataset.tooltipInfo);
                     
-                    console.debug('after json parse, params.info:',params.info)
+                    
                     //@step format 
                     if (!params.info){
                         return ;
@@ -370,7 +370,7 @@ export const tooltipService = {
                             view.meta = _fetch_meta_data(view.name);
                         }
                         //@step 
-                        console.debug('view.meta:',view)
+                        
                         if (view.meta){
                             const data = {... view.meta, ...{name:view.name}};
                             view.metaString = JSON.stringify(data);
@@ -388,12 +388,12 @@ export const tooltipService = {
             const cssName = " focusBox"
             if (focused){
                 elt.className =  elt.className + cssName;  
-                console.log("✅ focused",elt)
+                
                 return ;
             }
             
             elt.className = elt.className.replaceAll(cssName,'')
-            console.log("❌ lost focus",elt)
+            
         }
         function _hook_layout(){
             var coll = document.getElementsByClassName("spy-collapsible");
@@ -404,7 +404,7 @@ export const tooltipService = {
                     continue;
                 }
                 coll[i].addEventListener("click", function() {
-                    console.log('⚡️ click !' + (new Date()).getTime());
+                    
                     this.classList.toggle("spy-active");
                     var content = this.nextElementSibling;
                     if (content.style.maxHeight){
@@ -449,7 +449,7 @@ export const tooltipService = {
                 mouseEntered = false;
                 //@step modify logic, not close the tooltip for user interaction   
                 if (target.dataset.spy){  
-                    console.log('🏆 onMouseleave，not clean immediately',target.dataset)
+                    
                     return;
                 } 
                 //original 

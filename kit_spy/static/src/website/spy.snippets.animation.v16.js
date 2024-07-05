@@ -22,7 +22,7 @@ odoo.define('spy.snippets.animation', function (require) {
             this.lastScroll = 0;
             this.$scrollingElement = $().getScrollingElement();
             //@@ step
-            console.log("🔍🧐 spy.snippets.animation->start,patch ready!✅",this);
+            
     
             // By default, elements are hidden by the css of o_animate.
             // Render elements and trigger the animation then pause it in state 0.

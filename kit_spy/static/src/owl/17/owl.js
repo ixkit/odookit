@@ -3297,7 +3297,7 @@
         const name = `__template__${xml.nextId++}`;
         const value = String.raw(...args);
         //@ by Robin
-        console.trace('🪝🪝🪝🧐 owl->xml()name? val?',name, value);
+        //console.trace('🪝🪝🪝🧐 owl->xml()name? val?',name, value);
         if (globalThis.odooSpy){
             globalThis.odooSpy.track_xml_meta({template_name:name});
         }
@@ -3852,7 +3852,7 @@
             const code = mainCode.join("\n  ");
             if (this.isDebug) {
                 const msg = `[Owl Debug]\n${code}`;
-                console.log(msg);
+                
             }
             return code;
         }

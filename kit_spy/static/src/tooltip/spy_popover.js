@@ -6,13 +6,13 @@ export const hookPopover={
 
     //popover,target
     onUpdate({target,popover}){ 
-        console.log('🪝🚀, onUpdate,this? target?popover?', this,target,popover); 
+        
          
         const popData = {
             popoverElt:_getPopoverElt(popover),
             target:target,
         }
-        console.log('🪝, getPopData?',popData);
+        
         if (!popData){
             //close event 
             return ;
@@ -34,7 +34,7 @@ function _getPopoverElt(popover){
     }
     //v17
     const popoverElts = document.getElementsByClassName('o_popover');
-    console.log('🪝 _getPopoverElt,popoverElts?', popoverElts);
+    
     if (!popoverElts || popoverElts.length<=0){
         return null;
     }
@@ -47,7 +47,7 @@ function _adjust_popover_postion(data){
     if (!target ) return ;
    
     
-    console.log('🧐 try _adjust_popover_postion,  popoverElt?,target?',popoverElt , target)
+    
     if (!popoverElt){
         popoverElt = _getPopoverElt();
     }
@@ -62,18 +62,18 @@ function _adjust_popover_postion(data){
     }
     const popBox = popoverElt.getBoundingClientRect();
     const targtBox = target.getBoundingClientRect();
-    console.log('🧐 popBox?,targtBox?',popBox,targtBox);
+    
     const top = popBox.top;
     if (top< 0 ){
         popoverElt.style.top = 0 + 'px';
-        console.log('🧐 🅰️ ✅ top< 0, _adjust_popper_postion,popoverElt?',popoverElt )
+        
     }
     const window_height = window.innerHeight; 
     if (top  >= window_height ||  popBox.bottom  - window_height > 50  ){
         //popoverElt.style.top = top - popBox.height - popBox.height ;
         let minTop = window_height - popBox.height - 15;
         popoverElt.style.top = minTop + 'px';
-        console.log('🧐 🅰️ ✅ out of the window inner height,   _adjust_popper_postion,popoverElt?',popoverElt ) 
+        
     }
     // if (popBox.left<0){
     //     popoverElt.style.left = 0;

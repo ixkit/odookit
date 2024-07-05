@@ -1418,7 +1418,7 @@ registry.WebsiteAnimate = publicWidget.Widget.extend({
         //@@ this.$scrollingElement[0].addEventListener('scroll', this.__onScrollWebsiteAnimate, {capture: true});
        //@@ throw error need detect the value validate 
        if (this.$scrollingElement[0]){
-        console.log('🏃🏃🏃🏃🏃🏃🏃🏃🏃')
+        
         this.$scrollingElement[0].addEventListener('scroll', this.__onScrollWebsiteAnimate, {capture: true});
         }
 

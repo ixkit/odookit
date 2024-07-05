@@ -16,19 +16,19 @@ const viewRegistry = registry.category("services");
 */
 //viewRegistry.on("UPDATE", null, function (...args) {
 viewRegistry.addEventListener("UPDATE",({ detail: { operation, key,value } }) => {
-    //console.log(...args);
+    //
    // const {operation,key,value} = args[0];
     
     if (operation === 'add' && 'tooltip' === key){
         if (value.self) return ;
-        console.log('🪝🚀, inject tooltipService', key, value); 
+        
         on_hook(value);
     }
     
 });
 const theToolipService = null;
 function on_hook(tooltipService){  
-    console.log('🧐 on_hook,tooltipService?', tooltipService)
+    
     theToolipService = tooltipService;
    // tooltipService.start = MyTooltipService.start
 }
@@ -41,11 +41,11 @@ const main_components = registry.category("main_components");
 
 // //main_components.on("UPDATE", null, function (...args) 
 main_components.addEventListener("UPDATE",(detail)=>{  
-    console.log('🪝🚀, main_components update event',detail);
+    
     const {operation,key,value} = detail;
     
     if (operation === 'add' && "OverlayContainer" === key){ 
-        console.log('🪝🚀, inject OverlayContainer,key? value?', key, value); 
+        
         // let popoverContainer = value;
         // hookPoper.hook(popoverContainer);
         // popoverContainer.props.bus.on('UPDATE', hookPoper, hookPoper.onUpdate) 
@@ -57,14 +57,14 @@ const hookPoperV16={
 
     hook (popoverContainer){
         this.popoverContainer = popoverContainer;
-        console.log('🪝🚀, hookPoper->hook,popoverContainer?',this.popoverContainer);
+        
     },
     onUpdate(...args){
-        // console.log(...args);   
-        console.log('🪝🚀, on popoverContainer eventbus update,popoverContainer? ', this.popoverContainer ); 
+        // 
+        
         
         const popData = this.getPopData();
-        console.log('🪝, getPopData?',popData);
+        
         if (!popData){
             //close event 
             return ;
@@ -76,9 +76,9 @@ const hookPoperV16={
     },
     getPopData(){
         if (null == this.popoverContainer) return null ;
-        console.log('🪝, try getPopTarget, popoverContainer?',this.popoverContainer);
+        
         const popovers = this.popoverContainer.props.popovers;
-        console.log('🪝, try getPopTarget, popovers?',popovers);
+        
         if (_.isEmpty(popovers)) return null;
         for (const x in popovers) {
             const target = popovers[x].target;
@@ -96,7 +96,7 @@ function _adjust_popper_postion(data){
     const key = `div [popover-id="${id}"]`;
     const popoverElt = document.querySelector(key);
     
-    console.log('🧐 try get popover element, key?, popoverElt?,target?',key,popoverElt , target)
+    
    
     if (!popoverElt){
         data.invokeCount ++; 
@@ -108,16 +108,16 @@ function _adjust_popper_postion(data){
     }
     const popBox = popoverElt.getBoundingClientRect();
     const targtBox = target.getBoundingClientRect();
-    console.log('🧐 popBox?,targtBox?',popBox,targtBox);
+    
     const top = popBox.top;
     if (top< 0 ){
         popoverElt.style.top = 0;
-        console.log('🧐 🅰️ ✅ _adjust_popper_postion,popoverElt?',popoverElt )
+        
     }
     const window_height = window.innerHeight; 
     if (top  >= window_height ){
         popoverElt.style.top = top - popBox.height - popBox.height/2 ;
-        console.log('🧐 🅰️ ✅ _adjust_popper_postion,popoverElt?',popoverElt )
+        
     }
 }
 

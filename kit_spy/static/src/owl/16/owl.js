@@ -3845,7 +3845,7 @@
             const code = mainCode.join("\n  ");
             if (this.isDebug) {
                 const msg = `[Owl Debug]\n${code}`;
-                console.log(msg);
+                
             }
             return code;
         }

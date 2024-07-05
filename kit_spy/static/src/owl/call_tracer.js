@@ -23,7 +23,7 @@ export  async function extract_caller( calleeList =['at Spy.track_xml_meta'],jum
     }catch(ex){ 
         try{ 
             let traceback = await  annotateTraceback(ex); 
-            console.trace(`🪝->extract_caller,traceback?`, traceback); 
+            //console.trace(`🪝->extract_caller,traceback?`, traceback); 
             const list = traceback.split('\n');   
             let calle_line_number = -1;
             for (let index = 0; index <list.length; index++) {
@@ -37,7 +37,7 @@ export  async function extract_caller( calleeList =['at Spy.track_xml_meta'],jum
                 return null;
             }
             const result = list[calle_line_number + jumpIndex];
-            console.debug(`🪝✅ -> extract_caller, line?`, result); 
+            
 
             return result;
         }catch(ex){

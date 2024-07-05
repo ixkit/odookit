@@ -2,13 +2,13 @@
 {
     'name': "Kit Vest",
     'summary': """
-        * rebrand website builder information on bottom layout
-        * hide database management & login with odoo account
-        * disable auth_oath provider, please disable it from setting panel
+        Rebranding, put 🎽 to 🏃
         """,
 
     'description': """
-        Long description of module's purpose
+        * rebrand website builder information on bottom layout
+        * hide database management & login with odoo account
+        * disable auth_oath provider, please disable it from setting panel
     """,
 
     'author': "ixkit",
@@ -35,7 +35,7 @@
 
         'views/views.xml',
         'views/actions.xml',
-        'views/menus.xml',
+       #'views/menus.xml',
         'views/templates.xml',
 
         'views/web/webclient_templates->rebrand.xml',

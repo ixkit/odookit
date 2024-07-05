@@ -15,11 +15,11 @@ class DynamcFunctionBuilder{
         this.context = context;
     }
     extract_fun_body(code){
-        console.log('🪝🧐 try _extract_fun_body code?',code);
+        
         const markIndex = code.indexOf('{') + 1;
         const len = code.length;
         code = code.substring(markIndex,len-1);
-        console.log('🪝🧐 _extract_fun_body code?',code);
+        
         return code;
     }
     /*
@@ -55,10 +55,10 @@ class DynamcFunctionBuilder{
 
     */
     _trace_list(list, tag='_trace_list'){
-        console.log(`🪝🧐 length: ${list.length}`); 
+        
         for (let index = 0; index < list.length; index++) {
             let buf = list[index];
-            console.log(`🪝🧐 ${tag}:  [${index}]=${buf}`);  
+            
         }
     }
  
@@ -90,9 +90,9 @@ class DynamcFunctionBuilder{
             let sub_segs = suffix.split(TAG_CREATE_BLOCK_CLOSE);
             //this._trace_list(sub_segs,'sub');
             let xmlstr = sub_segs[0];
-            console.log('🪝 xmlstr:',xmlstr,this);
+            
             let piece_code = prefix + this.inject_block(xmlstr); 
-            console.log('🪝 piece_code:',piece_code,this);       
+            
             piece_code_list.push(piece_code);
             rewrited = true;
 
@@ -127,7 +127,7 @@ class DynamcFunctionBuilder{
     _rebuild_template_function(fun, report={}){
         //return new Function("app, bdom, helpers", code); 
         const block_code = fun.toString();
-        console.log(`🪝 rebuild_template_function, block_code?`,block_code);
+        
         if (!block_code.includes(TAG_CREATE_BLOCK)){
             return fun;
         }        
@@ -148,14 +148,14 @@ class DynamcFunctionBuilder{
         code = '\r\n' + log_line + context_line + context_log_line + builder_line + code; 
        
         try{
-            console.log('🪝🧐 try create new Function with new code?',code); 
+            
             const result =  new Function("app, bdom, helpers", code);
             report.changed = true;
             return result;
         }catch(ex){
             console.trace(ex);
             console.error(`🪝 Failed rebuild_template_function! ex:${ex}, for:${this.name},new code?`,code);
-            console.log(`🪝 Failed rebuild_template_function for ${this.name},old code?`,block_code);
+            
         } 
         return fun;
         
@@ -221,20 +221,20 @@ function extend_owl_app(){
         
         AppClass.prototype._compileTemplate = function _withMeta_compileTemplate(name, template) {
            
-            console.log('🪝🧐 try _compileTemplate,name? template?',name,template);
+            
             let context = null;
             do{ 
                 if (is_str(template)){
-                    console.log(`🪝🧐  ${name} is string, not fetch meta, template?`,template );
+                    
                     break;
                 }
                 context = _fetch_meta_data(name,template) 
 
             }while(false); 
-            console.log('🪝🧐 apply with: name? template? context?',name,template,context);
+            
             if (!context){
                 context = odooSpy().xmlMetaData.get(name);
-                console.log('🪝🧐 odooSpy().xmlMetaData.get: name? context?',name, context);
+                
                 if (!context){
                     odooSpy().missMetaData.put(name,template);
                     //this._listenSpyEvent();
@@ -251,19 +251,19 @@ function extend_owl_app(){
                 return fun;
             }
             
-            console.log('🪝🧐 try DynamcFunctionBuilder,name? old_fun? ',name,fun.toString());
+            
             //@step rebuild it append handle meta information code 
             const functionBuilder = new DynamcFunctionBuilder(name,context);
             const report ={};
             let fun_withMeta  = functionBuilder.rebuild_template_function(fun,report);
             if (fun_withMeta && report.changed){ 
-                console.log('🪝🧐🚀 apply new function with meta, name? fun? ',name,fun_withMeta.toString());
-                console.log('🪝🧐🚀 apply new function with meta, name? old-fun? ',name,fun.toString());
+                
+                
 
                 return fun_withMeta;
             }
             //@step no update, use 
-            console.log('🪝 not rebuild, continue old function, name? fun? ',name,fun.toString());
+            
             return fun; 
         };
 
@@ -277,17 +277,17 @@ function extend_owl_app(){
             this.spylistenSpyEvent = 1;
         }
         AppClass.prototype._onSpyEvent = function _onSpyEvent(meta_data){
-            console.log('🪝 _onSpyEvent: data?',meta_data);
+            
             let {templateName,meta}  = meta_data;
             const targets = document.querySelectorAll(`[data-template-name=${templateName}]`);
             for (let index = 0; index < targets.length; index++) {
                 const item = targets[index];
-                console.log(`🪝 _onSpyEvent, [${templateName}] find target item?`,item); 
+                
                 const tooltip_info = globalThis.owlMetaBuilder.metaData_to_tooltip_info_str(meta_data);
                 
                 if (tooltip_info){
                     item.setAttribute('data-tooltip-info',tooltip_info);
-                    console.log(`🪝 _onSpyEvent, update target item?`,item);
+                    
                 } 
                 
             }
@@ -302,7 +302,7 @@ function odooSpy(){
 function odoo_debuger(){
     const odoo = globalThis.odoo;
     odoo.loader.bus.addEventListener("module-started", (e) => {
-        console.log('🪝 module-started',e);
+        
     });
 }
 
@@ -321,4 +321,5 @@ const launch_info = `odokit spy is starting ... 🔥💥🔨
 - Trace data streaming
 Use odokit spy to speed coding! 🚀
 `;
-console.log(launch_info)
+
+console.log(launch_info);

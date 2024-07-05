@@ -200,13 +200,13 @@ class OwlMetaBuilder{
  
 
         const {templateName, meta} = meta_data;
-        console.log('👀 try inject for template,template_name? meta?,str?',templateName, meta, str); 
+        
 
         if (is_popover(templateName)) return str;
             
         if (is_tooltip(templateName))  return str;
 
-        console.log('👀 do inject for template,template_name? meta?,str?',templateName, meta, str);  
+        
 
 
         let insertAt = getStyleIndex(str);
@@ -220,7 +220,7 @@ class OwlMetaBuilder{
             const html = ` ${tooltip_attr}  ${style} `;
 
             str = insertAtIndex(str,html, insertAt);
-            console.log('👀 createBlock inject :', str);
+            
         } 
         return str;
     }
