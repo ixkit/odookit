@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>代码雨炫酷效果:公众号AlbertYang</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+</style>
+    <script>
+      window.onload = function() {
+        var H = window.innerHeight;
+        var W = window.innerWidth;
+        var mycanvas = document.getElementById('mycanvas');
+        var ctx = mycanvas.getContext('2d');
+
+        mycanvas.height = H;
+        mycanvas.width = W;
+
+        var fontsize = 18;
+        var text = [];
+        var lie = Math.floor(W / fontsize);
+        var str = '01'
+        for (var i = 0; i < lie; i++) {
+          text.push(0);
+        }
+        ctx.font = fontsize + 'px 微雅软黑';
+
+        function draw() {
+          ctx.fillStyle = 'rgba(0,0,0,0.08)'
+          ctx.fillRect(0, 0, W, H);
+          ctx.fillStyle = randColor();
+          for (var i = 0; i < lie; i++) {
+            var index = Math.floor(Math.random() * str.length);
+            var x = Math.floor(fontsize * i)
+            var y = text[i] * fontsize
+            ctx.fillText(str[index], x, y);
+            if (y > H && Math.random() > 0.99) {
+              text[i] = 0
+            }
+            text[i]++;
+          }
+        }
+
+        function randColor() {
+          var r = Math.ceil(Math.random() * 155) + 100;
+          var g = Math.ceil(Math.random() * 155) + 100;
+          var b = Math.ceil(Math.random() * 155) + 100;
+          return 'rgb(' + r + ',' + g + ',' + b + ')'
+        }
+        console.log(randColor())
+        var timer = setInterval(function() {
+          draw();
+        }, 1000 / 30)
+      }
+</script>
+ 
+  </head>
+  <body data-gr-c-s-loaded="true">
+    
+
+    <div class="" style="display:relative;">
+        <div id="contentDiv"style="margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        height:100px;width:100px; color: aqua;  
+         z-index:99999;">
+            fdsafdsa
+        </div>
+        <div>
+            <canvas id="mycanvas"  style="position:absolute;z-index:-1;">
+        </div>
+    </div>
+  </body>
+</html>

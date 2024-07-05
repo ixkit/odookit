@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="kit_vest.list">
+      <field name="name">kit_vest list</field>
+      <field name="model">kit.vest</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" eval="time.strftime('%Y-12-31')"/>
+          <field name="value"/>  
+          <field name="value2"/>
+          <field name="value2" />
+        </tree>
+      </field>
+    </record>
+ 
+  <record id="kit_vest.form" model="ir.ui.view">
+    <field name="name">form </field>
+     <field name="model">kit.vest</field>
+    <field name="arch" type="xml">
+        <form string="AnvilBase">
+            <sheet style='background-color:red'>
+                <!-- <group col="2" string="Page Details">
+                    <group colspan="1" string="Page">
+                       <field name="name"  />
+                        <field name="value"/>
+                        <label for="name_slugified" string="URL"/>
+                        <div>
+                            <span>/value2/</span>
+                            <field name="value2" nolabel="1"  />
+                          
+                        </div>
+                        
+                    </group>
+                 
+                </group> -->
+                <notebook groups="base.group_no_one">
+                    <page string="View">
+                        <group> 
+                          <div style='background-color:red'>
+                            <field name="name"/>
+                          </div>  
+                        </group>
+                    </page>
+                    <page string="Value">
+                       <div style='background-color:yellow'>
+                        <field name="value"/>
+                        </div> 
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+  </record>
+
+  </data>
+</odoo>

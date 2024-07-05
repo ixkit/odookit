@@ -1,0 +1,236 @@
+.oh_dashboards{
+    padding-top :3px;
+    background-color: #f8faff !important;
+}
+
+.oh-card h4 {
+    font-size: 1.1rem;
+}
+.breadcrumbs {
+    margin-top: 0;
+}
+
+.buttons button {
+  margin: 2px 0; }
+
+/* Button Reset */
+.btn, .button {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  transition: all .15s ease-in-out;
+  border-radius: 0;
+  cursor: pointer; }
+
+
+/*    Widget One
+---------------------------*/
+.stat-content {
+    display: inline-block;
+    width: 66%;
+}
+.stat-icon{
+    display: inline-block;
+}
+
+.status-widget-image-ready {
+    
+    margin: auto;
+    max-width: 60px;
+    max-height: 110px;
+    content: url("../../image/server-white.svg");
+   
+}
+.status-widget-image-running {
+    
+    margin: auto;
+    max-width: 60px;
+    max-height: 110px;
+    content: url("../../image/server-running.svg");
+   
+}
+
+ 
+
+/* HTML: <div class="status-widget-image-loading"></div> */
+.status-widget-image-loading {
+   
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    color: #854f1d;
+    background: radial-gradient(farthest-side, currentColor calc(100% - 6px),#0000 calc(100% - 5px) 0);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 13px),#000 calc(100% - 12px));
+    border-radius: 50%;
+    animation: l19 2s infinite linear;
+  }
+  .status-widget-image-loading::before,
+  .status-widget-image-loading::after {    
+    content: "";
+    grid-area: 1/1;
+    background:
+      linear-gradient(currentColor 0 0) center,
+      linear-gradient(currentColor 0 0) center;
+    background-size: 100% 10px,10px 100%;
+    background-repeat: no-repeat;
+  }
+  .status-widget-image-loading::after {
+     transform: rotate(45deg);
+  }
+  
+  @keyframes l19 { 
+    100%{transform: rotate(1turn)}
+  }
+
+.stat-widget-one .stat-icon {
+    vertical-align: top;
+    margin: auto;
+    width: 100%;
+    color: #01c490;
+}
+
+.stat-widget-one .stat-icon i {
+  font-size: 30px;
+  font-weight: 900;
+  display: inline-block;
+  color: #01c490;}
+
+.stat-widget-one .stat-text {
+    font-size: 14px;
+    color: #868e96;
+    font-weight: bold;
+}
+
+.stat-widget-one .stat-digit {
+  font-size: 24px;
+  color: #02448b; }
+
+.stat-count {
+  font-size: 20px;
+  text-align: center;
+  color: #00438b;}
+
+.stat-title {
+  font-size: 17px;
+  text-align: center;
+  color: #00438b; }
+
+.mb-0 .dash-title {
+    font-size: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.81);
+}
+.hr_birthday {
+    font-size: 28px;
+    text-align: center;
+    padding: 20px 0;
+    color: #00438b;
+    font-weight: 600;
+}
+
+body .text-color {
+    color: #00438b;
+}
+.slice {
+    stroke: #fff;
+    stroke-width: 0px;
+}
+  
+
+/*.dummy{
+    height:130vh;
+}*/
+.oh-card {
+
+    padding-top: 0px;
+    padding: 0px;
+    margin-bottom: 1.5rem;
+    border-radius: 0px;
+    box-shadow: none;
+    background: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform, box-shadow;
+
+}
+.oh-card:hover {
+
+    transform: translateY(-2px) translateZ(0) !important;
+    box-shadow: 0 10px 10px 0 rgba(62, 57, 107, 0.12), 0 0 0 transparent !important;
+
+} 
+.oh-payslip {
+
+    margin-top: 10px;
+
+}
+.oh-payslip .stat-icon {
+
+    width: 30%;
+    height: 85px;
+    text-align: center;
+    background: #ff8762;
+    color: #fff;
+    width: 32%;
+    padding-top: 2%;
+    font-size: xxx-large;
+
+}
+.oh-payslip .oh-card {
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform, box-shadow;
+    box-shadow: 0 10px 40px 0 rgba(62,57,107,0.07), 0 2px 9px 0 rgba(62,57,107,0.06);
+
+}
+.stat-widget-one .stat-text {
+
+    font-size: 14px;
+    color: #ff8762;
+    margin-top: 2.3rem;
+    margin-left: 1rem;
+
+}
+.stat-widget-one .stat-digit {
+    font-size: 26px;
+    color:#993232;
+    margin-left: 1rem;
+    margin-top: -1px;
+    font-family: initial
+}
+
+.stat-widget-one .stat-icon i {
+
+    font-size: 25px;
+    font-weight: 900;
+    display: inline-block;
+    color: #fff;
+
+}
+.stat-widget-one {
+
+    background-color: white;
+    text-align: left;
+
+}
+.stat-widget-one {
+    width: 100%;
+}
+.oh-payslip .stat-icon {
+
+    width: 30%;
+    height: 85px;
+    text-align: center;
+    padding-top: 2%;
+
+}  
+.row.main-section {
+    margin-right: 0px; !important;
+} 
+.oh-card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ 

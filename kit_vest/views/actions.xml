@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="action_window_kit_vest_regular" model="ir.actions.act_window">
+            <field name="name">Base</field>
+            <field name="res_model">kit.vest</field>
+            <field name="view_mode">tree,kanban,form</field>
+
+    </record>
+ </data>
+</odoo>

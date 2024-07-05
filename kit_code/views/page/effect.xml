@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<odoo><data>
+
+    <template id="kit_code.code_effect_js" >
+    <script src="/kit_code/static/src/js/effect.js"></script> 
+    <script type="text/javascript"> 
+        <!-- console.debug('❌ effect.xml') -->
+    </script>   
+    </template>
+ 
+</data></odoo>

@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+<odoo><data>
+    <template id = "kit_code.home_page" >
+        <div class="" style="display:relative;">
+            <div id="contentDiv" style="margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+             color: aqua;  
+            z-index:99999;">
+                 <t t-call='kit_code.home_page_feature'></t>
+            </div>
+            <div>
+                <canvas id="codeStreamCanvas"  style="position:absolute;z-index:-1;"/>
+            </div>
+        </div>
+         <t t-call='kit_code.code_effect_js'></t>
+    </template>
+    <template id="kit_code.home_page_feature" > 
+        <t t-set="tracer" t-value='not true'></t>
+        <t t-set='codeServerIsRunning' t-value="(not codeServer is None and codeServer.get('status') == 'running')  "/> 
+        <div  style=' display: inline-flex; height:100%;width:100%;flex-direction: column; justify-content: center;align-items: center; font-size:25px;  '>
+           
+            <div t-if="error" style="color:red; ">
+                <div><t t-out="error"/></div>
+                <div><t t-out="codeServer"/></div>
+                <div><t t-out="nextUrl"/></div>
+            </div>
+
+            <div t-if="not error"> 
+                <div style=" justify-content: center;align-items: center; " >
+                    <div  t-if="nextUrl" style="display:none">
+                        <!-- debug -->
+                        <span id='nextUrl' ><t t-out="nextUrl"/></span>
+                    </div> 
+                    <div t-if="codeServerIsRunning" >
+                        Loading <span style="font-weight: bold; "><t t-out="moduleName"/></span>   ...
+                    </div> 
+                </div>
+                <div t-if=" not codeServerIsRunning" >  
+                    Code Server not running, launch now?
+                    <div align='center' style="margin-top:10px;"> 
+                        <span style="cursor:pointer; font-weight: bold; color:yellow; font-size:25px;" onclick='onClickStart()'  >Start⚡︎</span>
+                    </div>
+                </div> 
+               
+            </div> 
+             
+            <div t-if="tracer" style="background:blue;color:white">
+                <div>error:<t t-out="error"/></div>
+                <div>codeServer:<t t-out="codeServer"/></div>
+                <div>nextUrl:<t t-out="nextUrl"/></div>
+                <div>startUrl:<t t-out="startUrl"/></div>
+            </div>       
+            
+        </div>          
+      
+      <script t-if="codeServerIsRunning and not nextUrl is None">
+           
+            function go(){
+                let forwardUrl = '<t t-out="nextUrl"/>' 
+                //console.log('forwardUrl?', forwardUrl)
+                if (! forwardUrl || '' === forwardUrl){ 
+                    return ;
+                } 
+                forwardUrl = decodeURIComponent(forwardUrl)
+                forwardUrl = forwardUrl.replace('amp;','') 
+                 
+                window.location.href = forwardUrl
+            }
+            
+            setTimeout(()=>{
+                go();
+            },1000*1)
+       </script>
+       <script t-if="not codeServerIsRunning">
+            function onClickStart(){ 
+                let forwardUrl = '<t t-out="startUrl"/>'  
+                //forwardUrl = decodeURIComponent(forwardUrl) 
+
+                location.href = forwardUrl;
+            }  
+            //console.debug('☁️ start....')
+       </script> 
+      <!-- <t t-call='kit_code.code_effect_js'></t> -->
+     
+    </template>
+ 
+</data></odoo>

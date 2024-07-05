@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="kit_code.code_dashboard" xml:space="preserve">
+    <!--  Template for Code Dashboard  -->
+    <t t-name="CodeDashboard">
+        <div class="oh_dashboards"  style="height:100%;" >
+        <!-- <div class="debug-area" style="display:block">
+            <button t-on-click="pushSpaceToCodeServer" >pushSpaceToCodeServer</button>
+            <button t-on-click="_openFile" >openFile</button>
+        </div> -->
+            <div class="container-fluid o_dashboard"   style="height:100%;">
+                <div class="row main-section" align="center" >
+             
+                    <div class="  oh-payslip "  >
+                                <div xclass="oh-card" >
+                                    
+                                    <div class="oh-card-body" style="justify-content: center;">
+                                    
+                                        <div style="cursor:pointer"  class = 'button-grow-shadow'
+                                            t-on-click="on_ctrl_server"  t-att-title='state.codeServerTip' >
+                                           
+                                            <img  t-att-class="state.serverStatus =='ready' ?  'status-widget-image-ready button  ': 'status-widget-image-running button   ' "  alt="code server" />
+                                            
+                                           
+                                        </div>
+                                        <span style="margin-left:20px;font-weight: bold;">Code Server </span>
+                                        <span style="margin-left:5px;">is <t t-esc="state.serverStatus"/></span>
+                                        <div style="margin-left:6px; cursor: -webkit-grab; cursor: grab;" title="Open Code Editor" t-if="state.serverStatus ==='running'" t-on-click="handleCickCodeServer" > 
+                                         
+                                            <span > at <t t-esc="state.coderServer.url"/></span>
+                                        
+                                        </div>
+                                        <div style='font-size:12px;margin-left:10px;' >
+                                            <button name="" type="object"
+                                                class="btn-primary" icon="fa-star" t-on-click="on_ctrl_server">
+                                                <div>
+                                                    <t  t-if="state.serverStatus ==='running'">Stop</t>
+                                                    <t t-else="">
+                                                      Start 
+                                                    </t>
+                                                </div>
+                                            </button>
+                                        </div>
+                    
+                                    </div>
+                                    <!-- <div class="status-widget-image-loading"></div>
+                                    <div style="text-align: center; margin-top:3px; color:gray; "><t t-esc="state.codeServerTip" /></div>
+                                     -->
+                                </div>
+                    </div>
+                    
+                </div>
+              
+                <div style=" margin-top:-20px;"  classx="col-md-4 col-sm-6" align="center">
+                    <div  style="height:100%;"  >
+                        <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <li class="nav-item" role="presentation"> 
+                                <button class="nav-link active" id="console-tab" data-bs-toggle="tab" data-bs-target="#console" type="button" role="tab" aria-controls="console" aria-selected="true">Console</button> 
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link" id="odooEnv-tab" data-bs-toggle="tab" data-bs-target="#odooEnv" type="button" role="tab" aria-controls="odooEnv" aria-selected="false">Odoo Env</button>
+                            </li> 
+                        </ul>
+                        <div class="tab-content" id="myTabContent" style=" height:100%;">
+                            <div class="tab-pane fade show active" id="console" role="tabpanel" aria-labelledby="console-tab" style=" height:100%;">
+                            <!-- the termynal container max-height:30vh;-->
+                                <div data-termynal='' style="   padding:75px 45px 35px !important; width:98%;  max-height:80vh "  >     
+                                    <div style="min-height:70vh;max-height:70vh;overflow: auto;">  
+                                        <div id="termynal" data-ty-maxLines="50"  style=" margin: 0px  10px  10px 10px;text-align: left; width:98%;  ">
+                                        </div>
+                                    </div> 
+                                </div>  
+                            </div>
+                            <div class="tab-pane fade" id="odooEnv" role="tabpanel" aria-labelledby="odooEnv-tab" >
+                                <div   style="padding:5px 5px 5px !important; width:98%; height:100%;"  >           
+                                    <div><span style="font-weight: bold;">Odoo Runtime Environment</span> 
+                                    </div>   
+                                        <div id="jsonTable"    style=" margin: 10px  10px  10px 10px;text-align: left;overflow: scroll; width:98%;max-height:75vh  ">
+                                            
+                                        </div> 
+                                    </div>
+                            </div>
+   
+                        </div> 
+                        
+                    </div>    
+                </div>
+            </div>
+        </div>
+       
+    </t>
+</templates>

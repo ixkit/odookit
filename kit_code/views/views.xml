@@ -1,0 +1,34 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="kit_code.list">
+      <field name="name">Message List</field>
+      <field name="model">kit.code.server</field>
+      <field name="arch" type="xml">
+        <tree>
+          <!-- <field name="name" eval="time.strftime('%Y-12-31')"/> -->
+          <field name="ts"/>  
+          <field name="message"/> 
+        </tree>
+      </field>
+    </record>
+ 
+  <record id="kit_code.form" model="ir.ui.view">
+    <field name="name">Message Form</field>
+    <field name="model">kit.code.server</field>
+    <field name="arch" type="xml">
+        <form string="">
+            <sheet > 
+                <notebook groups="base.group_user">
+                    <page string="Message" >
+                         <div style="background:red" > Time: <field name="ts" readonly="1" /> </div>
+                          <div> Message: <field name="message" readonly="1" /></div> 
+                    </page> 
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+  </record>
+
+  </data>
+</odoo>
