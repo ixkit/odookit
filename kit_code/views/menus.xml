@@ -13,7 +13,9 @@
   
     <!-- Top menu item -->
 
-    <menuitem name="Code🔨" id="kit_code.menu_root"/>
+    <menuitem name="Code🔨" id="kit_code.menu_root"
+    web_icon="kit_code,static/description/icon.png"
+    />
 
     <!-- menu categories -->
     <menuitem name="Log" id="menu_regular" parent="menu_root" action="action_window_kit_code_regular"/>
