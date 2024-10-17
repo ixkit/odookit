@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+
+    <!-- Top menu item -->
+
+    <menuitem name="Kit Vest" id="menu@root"/>
+
+    <!-- menu categories -->
+    <menuitem name="Regular" id="menu_regular" parent="menu@roo" action="act_window@kit_vest"/>
+
+
+   
+  </data>
+</odoo>

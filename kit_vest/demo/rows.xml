@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+
+          <record id="data_red@kit_vest" model="kit.vest">
+            <field name="name">Red Vest</field>
+            <field name="color">red</field>
+          </record>
+
+        <record id="data_white@kit_vest" model="kit.vest">
+            <field name="name">White Vest</field>
+            <field name="color">white</field>
+          </record>
+
+       
+
+    </data>
+</odoo>

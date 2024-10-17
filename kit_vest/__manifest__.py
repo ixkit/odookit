@@ -17,7 +17,7 @@
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
-    'category': 'Extra Tools',
+    'category': 'Extra Tools/ixkit',
     'version': '0.1',
     'support_version': '17.0',
     'license': 'LGPL-3',
@@ -33,18 +33,17 @@
     'data': [
         'security/ir.model.access.csv',
 
-        'views/views.xml',
-        'views/actions.xml',
-       #'views/menus.xml',
-        'views/templates.xml',
-
+        'views/vest/views.xml',
+        'views/vest/actions.xml',
+        # 'views/vest/menus.xml', 
+        
         'views/web/webclient_templates->rebrand.xml',
         'views/web/webclient_templates->login_security_db.xml',
 
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
+        'demo/rows.xml',
     ],
     #'images': ['static/description/banner.gif'],
     # 'pre_init_hook': 'test_pre_init_hook',

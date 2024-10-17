@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="act_window@kit_vest" model="ir.actions.act_window">
+            <field name="name">kit_vest</field>
+            <field name="res_model">kit.vest</field>
+            <field name="view_mode">tree,kanban,form</field>
+
+    </record>
+
+    <!-- server action to the one above -->
+
+    <record id="act_server@kit_vest" model="ir.actions.server" >
+      <field name="name">kit_vest server</field>
+      <field name="model_id" ref="model_kit_vest"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+ </data>
+</odoo>

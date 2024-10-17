@@ -141,10 +141,18 @@ class DynamcFunctionBuilder{
            
         //@step 
         let log_line = `console.log('🪝🦅🔥🤣 -> createBlock for:${this.name}, globalThis?', globalThis );\r\n`; 
+        
+
         const context_str = JSON.stringify(this.context);
         let context_line = `let context = ${context_str};\r\n`;
         let context_log_line = `console.log('🪝🦅🔥🤣 ->context:',context,context.templateName);\r\n`;
         let builder_line = `let owlMetaBuilder = globalThis.owlMetaBuilder;\r\n\r\n`;
+
+        if (true){
+            //disalbe out while release
+            log_line = '';
+            context_log_line = '';
+        } 
         code = '\r\n' + log_line + context_line + context_log_line + builder_line + code; 
        
         try{

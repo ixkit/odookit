@@ -9,11 +9,14 @@ class Vest(models.Model):
     _description = 'kit.vest'
 
     name = fields.Char()
-    value = fields.Integer()
-    value2 = fields.Float(compute="_value_pc", store=True)
+    
+    color = fields.Char( defualt="white")
+
+    size = fields.Integer()
+    size_folat = fields.Float(compute="_value_pc", store=True)
     description = fields.Text()
 
-    @api.depends('value')
+    @api.depends('size')
     def _value_pc(self):
         for record in self:
-            record.value2 = float(record.value) / 100
+            record.size_folat = float(record.size) / 100
