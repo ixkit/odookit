@@ -10,7 +10,7 @@
 #-----------------------------------------------------------------------
 {
     "name": "Odoo Spy🕵️",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
    
     "summary": """ 
         Help you insight into the rendering Templates of the Odoo web page,light up the template snippets,speed up development process🚀

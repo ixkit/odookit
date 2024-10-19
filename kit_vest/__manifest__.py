@@ -19,7 +19,7 @@
     # for the full list
     'category': 'Extra Tools/ixkit',
     'version': '0.1',
-    'support_version': '17.0',
+    'support_version': '18.0',
     'license': 'LGPL-3',
     # module type
     'auto_install': False,
