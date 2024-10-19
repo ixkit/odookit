@@ -12,14 +12,10 @@
     """,
 
     'author': "ixkit",
-    'website': "http://www.ixkit.com/odookit",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
-    'category': 'Extra Tools/ixkit',
-    'version': '0.1',
-    'support_version': '18.0',
+    'website': "http://www.ixkit.com/odookit", 
+   
+   'category': 'Extra Tools/ixkit',
+    'version': '18.0.0.1.0', 
     'license': 'LGPL-3',
     # module type
     'auto_install': False,
