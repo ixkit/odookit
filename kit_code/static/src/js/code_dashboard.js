@@ -3,7 +3,7 @@ import { registry } from "@web/core/registry";
 import { session } from "@web/session";
 import { _t } from "@web/core/l10n/translation";
 import { Component } from "@odoo/owl";
-import { onWillStart, onMounted, onWillDestroy, useState } from "@odoo/owl";
+import { onWillStart, onMounted,onWillUnmount, onWillDestroy, useState } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks"; 
 import { ConfirmationDialog, AlertDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 
@@ -45,6 +45,9 @@ export class CodeDashboard extends Component{
                 this._initConsole(); 
 
                 this.getOdooEnv();
+            });
+            onWillUnmount(() =>{
+              this.setTimerHandler(null);
             });
 
             onWillDestroy(() => {
@@ -214,17 +217,32 @@ export class CodeDashboard extends Component{
     async startCheckStatus(delay=2000){
        
       const that = this;
-      setTimeout(() => {
+      const timerHandler =  setTimeout(() => {
         that.render_server_status((x)=>{
           if (x === 'running'){
             try{
-              that.onCodeServerStarted();
+              if (that){
+                that.onCodeServerStarted();
+              }
+             
             }catch(ex){}
-          }else{
-            that.startCheckStatus(3000);
+            return;
+          } 
+          if (that){
+              that.startCheckStatus(3000);
           }
+           
         })
-      }, delay)  
+      }, delay) ;
+
+      this.setTimerHandler(timerHandler);
+    }
+    setTimerHandler(timer){
+      const existTimer = this._timerHandler;
+      if (existTimer){
+        clearTimeout(existTimer)
+      }
+      this._timerHandler = timer;
     }
     async onCodeServerStarted(){
       const that = this;

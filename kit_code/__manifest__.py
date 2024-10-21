@@ -5,14 +5,14 @@
 #@team              : ixkit
 #@author            : Artificer@ixkit.com
 #@date              : 2024-4-25
-#@version           : 1.0.0 
+#@version           : 1.1.0 
 #
 #-----------------------------------------------------------------------
 
 {
     "name": "Odoo Code🔨",
     "version": "17.0.1.1.0",
-
+    "module_version": "1.1.0",
     "summary": """ 
         Help you build Odoo application online, super speed development process🚀
     """, 
@@ -31,10 +31,12 @@
     "data": [ 
         'security/ir.model.access.csv',
 
-        'views/views.xml',
-        'views/actions.xml',
-        'views/menus.xml', 
-        'views/dashboard.xml',  
+        'views/code_server/forms.xml',
+        'views/code_server/lists.xml',
+        'views/code_server/actions.xml', 
+        'views/code_server/menus.xml', 
+        
+        'views/console/console.xml',  
 
         'views/page/web.xml',
         'views/page/effect.xml',

@@ -1,0 +1,11 @@
+<odoo>
+  <data> 
+
+    <menuitem id="menu@root" name="Code🔨" 
+      web_icon="kit_code,static/description/icon.png"
+    />
+ 
+    <menuitem id="menu@root_log" name="Log"  parent="menu@root" action="act_window@code_server"/> 
+   
+  </data>
+</odoo>
