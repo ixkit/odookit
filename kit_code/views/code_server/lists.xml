@@ -4,11 +4,11 @@
       <field name="name">Message List</field>
       <field name="model">kit.code.server</field>
       <field name="arch" type="xml">
-        <tree>
+        <list>
           <!-- <field name="name" eval="time.strftime('%Y-12-31')"/> -->
           <field name="ts"/>  
           <field name="message"/> 
-        </tree>
+        </list>
       </field>
     </record> 
 
