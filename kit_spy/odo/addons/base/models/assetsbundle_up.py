@@ -32,9 +32,9 @@ import sys
 from odoo import release, SUPERUSER_ID, _
 from odoo.http import request
 from odoo.modules.module import get_resource_path
-from odoo.tools import (func, misc, transpile_javascript,
-    is_odoo_module, SourceMapGenerator, profiler,
-    apply_inheritance_specs)
+# from odoo.tools import (func, misc, transpile_javascript,
+#     is_odoo_module, SourceMapGenerator, profiler,
+#     apply_inheritance_specs)
 from odoo.tools.misc import file_open, html_escape as escape
 from odoo.tools.pycompat import to_text
 

@@ -30,8 +30,14 @@ $spy-tooltip-font-color : black;
 
   + .popover-arrow {
     --popover-arrow-color: #FFECA1 !important;
+    --popover-bg: #FFECA1 !important;
   } 
 }
+
+// .o-tooltip + .popover-arrow {
+//   --popover-bg: var(--emphasis-color);
+// }
+
 
 // item
 .o-tooltip-uiview{

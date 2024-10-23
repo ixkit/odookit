@@ -14,7 +14,7 @@ import { whenReady } from "@odoo/owl";
 
 import { hookPopover } from "../spy_popover";
 
-import { jsonrpc } from "@web/core/network/rpc_service";
+//import { jsonrpc } from "@web/core/network/rpc_service";
 
 /**
  * The tooltip service allows to display custom tooltips on every elements with
@@ -144,11 +144,11 @@ const codeServerHander ={
         return globalThis.codeServer
     },
     refreshCodeServerInfo(){
+       return ;
         //ping code server  
         const fetchServerInfo=()=>{
             
-            const result = jsonrpc('/code🔨/api/ping', {
-            }).then(function (data) {
+            const result = fetch('/code🔨/api/ping').then(function (data) {
                 
                 codeServerHander.setCodeServer(data)
             }).catch((x)=>{
@@ -165,7 +165,7 @@ const codeServerHander ={
 export const tooltipService = {
     dependencies: ["popover"],
     start(env, {popover}) { 
-        
+       
         let openTooltipTimeout;
         let closeTooltip;
         let target = null;

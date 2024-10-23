@@ -10,7 +10,7 @@ class Vest(models.Model):
 
     name = fields.Char()
     
-    color = fields.Char( defualt="white")
+    color = fields.Char( default="white")
 
     size = fields.Integer()
     size_folat = fields.Float(compute="_value_pc", store=True)

@@ -324,10 +324,10 @@ extend_owl_app();
 
 odoo_debuger();
 
-const launch_info = `odokit spy is starting ... 🔥💥🔨
+const launch_info = `odookit spy is starting ... 🔥💥🔨
 - Trace template
 - Trace data streaming
-Use odokit spy to speed coding! 🚀
+Use odookit spy to speed coding! 🚀
 `;
 
 console.log(launch_info);

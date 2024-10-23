@@ -33,12 +33,12 @@
     "assets": {
         
         "kit_spy._assets_extends_owl": [
-
+          
             "kit_spy/static/src/owl/call_tracer.js",
             "kit_spy/static/src/owl/spy.js",
             "kit_spy/static/src/owl/owl_track_xml.js",
-            ("replace", "web/static/lib/owl/owl.js", "kit_spy/static/src/owl/17/owl.js"), 
-
+            # ("replace", "web/static/lib/owl/owl.js", "kit_spy/static/src/owl/17/owl.js"), 
+ 
             "kit_spy/static/src/owl/owl_meta_builder.js", 
             "kit_spy/static/src/owl/owl_override.js",   
                 

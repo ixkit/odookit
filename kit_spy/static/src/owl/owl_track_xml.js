@@ -88,6 +88,6 @@ const track_xml_meta = function (args={template_name}) {
 setup_spy(); 
 odooSpy().track_xml_meta = track_xml_meta;
   
-const launch_info = `odokit spy🕵️, owl_track_xml loaded done!
+const launch_info = `odookit spy🕵️, owl_track_xml loaded done!
 `;
 

@@ -18,7 +18,7 @@ class RuntimeOptions(object):
     def __setattr__(self, key, value):
         # self.__dict__.update()
         if key in self.__dict__:
-            raise self.ConstError("constant reassignment error!")
+            raise self.ConstError("constant reassignment error!, key:{},value:{},dict:{} ".format(key,value, self.__dict__ ))
         self.__dict__[key] = value
         return True
 

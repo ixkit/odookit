@@ -152,7 +152,7 @@ class OwlMetaBuilder{
         }
         str = str.trim();
         do {
-            const ignoreList = [  "<i","<li","<select","<option","<ul","<small","<span","<br","<td","<thead","<h4","<h3","<h2","<h1","<p"];
+            const ignoreList = [  "<i","<li","<select","<option","<ul","<small","<span","<br","<td","<thead","<h4","<h3","<h2","<h1","<p", "<div/>"];
             
              for (const item of ignoreList) {
                 if (str.indexOf(item) == 0){
@@ -185,7 +185,7 @@ class OwlMetaBuilder{
 
     }
     static _injectIfNeeds(str,meta_data,resultState = {}){
-        
+         
         if (! OwlMetaBuilder.isTraceMode()) return str; 
         
         if (!meta_data) return str;
@@ -205,10 +205,7 @@ class OwlMetaBuilder{
         if (is_popover(templateName)) return str;
             
         if (is_tooltip(templateName))  return str;
-
-        
-
-
+  
         let insertAt = getStyleIndex(str);
         if (insertAt > 0 ){   
             let style = ''; 
@@ -222,6 +219,7 @@ class OwlMetaBuilder{
             str = insertAtIndex(str,html, insertAt);
             
         } 
+        
         return str;
     }
     
